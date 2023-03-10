@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOZ REBORN - BETA</title>
+  <link rel="stylesheet" href="Styles/General.css">
+  <link rel="stylesheet" href="Styles/Header.css">
+  <link rel="stylesheet" href="Styles/Header-xpBar.css">
+  <link rel="stylesheet" href="Styles/Display-panel.css">
+  <link rel="stylesheet" href="Styles/Card-preview.css">
+  <link rel="stylesheet" href="Styles/OpponentSelection.css">
+  <link rel="stylesheet" href="Styles/Deckbuilder.css">
+  <link rel="stylesheet" href="Styles/Search-panel.css">
+  <link rel="stylesheet" href="Styles/Prizecard.css">
+</head>
+<body>
+  <header class="header">
+    <div>Site Icon - Image</div>
+    <div class="xp-grid">
+      <div id="xp-emblem" class="hex">
+        <div>
+          <div class="hex-left-big"></div>
+          <div class="hex-center-big"></div>
+          <div class="hex-right-big"></div>
+        </div>
+        <div class="small-hex">
+          <div class="hex-left"></div>
+          <div class="hex-center">
+            <div id="level-value"></div>
+          </div>
+          <div class="hex-right"></div>
+        </div>
+      </div>
+      <div class="xp-area">
+        <div id="player-name">召喚師稱號: </div>
+        <div id="xp-bar"></div>
+        <div id="total-xp-bar"></div>
+        <div id="xp-value"></div>
+      </div>
+    </div>
+  </header>
+  <div id="alert-container">
+    <div class="alert-box">
+      <div id="alert-text"></div>
+      <select id="alert-select" class="alert-dropdown-menu"></select>
+      <div>
+        <button id="alert-button1" class="play-buttons"></button>  
+        <button id="alert-button2" class="play-buttons"></button>  
+      </div>
+    </div>
+  </div>
+  <div id="card-preview-panel">
+    <div id="card-preview-img-container">
+      <img id="card-preview-img" src="CardBack/gurifu.jpg">
+    </div>
+  </div> 
+    
+  </div>
+  <div class="grid-panel">
+    <div class="big-panel" id="collection-panel">
+      <div class="search-panel" id="search-panel-c">
+        <button class="drop-down-button" onclick="resetCriteria('C', prizeCards)">重置條件</button>  
+        <button class="drop-down-button" id="drop-down-button-series" onclick="showDropdown('drop-down-series')">編章</button>
+        <div class="drop-down-list" id="drop-down-series">
+          <div class="drop-down-choice" onclick="selectSeries('gurifu', prizeCards)">格里夫</div>
+          <div class="drop-down-choice" onclick="selectSeries('mogora', prizeCards)">莫哥拿</div>
+          <div class="drop-down-choice" onclick="selectSeries('kosumo', prizeCards)">宇宙</div>
+          <div class="drop-down-choice" onclick="selectSeries('meiro', prizeCards)">米多羅</div>
+          <div class="drop-down-choice" onclick="selectSeries('neosu', prizeCards)">尼奧斯</div>
+        </div> 
+        <button class="drop-down-button" id="drop-down-button-cardType-c" onclick="showDropdown('drop-down-cardType-c')">咭種</button>
+        <div class="drop-down-list" id="drop-down-cardType-c">
+          <div class="drop-down-choice" onclick="selectCardType('C', prizeCards, 'sum')">召喚師</div>
+          <div class="drop-down-choice" onclick="selectCardType('C', prizeCards, 'Mon')">召喚獸</div>
+          <div class="drop-down-choice" onclick="selectCardType('C', prizeCards, 'Help')">Help</div>
+          <div class="drop-down-choice" onclick="selectCardType('C', prizeCards, 'SP')">SP</div>
+          <div class="drop-down-choice" onclick="selectCardType('C', prizeCards, 'Help/SP')">Help/SP</div>
+          <div class="drop-down-choice" onclick="selectCardType('C', prizeCards, 'Ch')">Ch</div>
+          <div class="drop-down-choice" onclick="selectCardType('C', prizeCards, 'R')">R</div>
+          <div class="drop-down-choice" onclick="selectCardType('C', prizeCards, 'Ch')">F</div>
+          <div class="drop-down-choice" onclick="selectCardType('C', prizeCards, 'Astro')">占星術</div>
+        </div>
+        <button class="drop-down-button" id="drop-down-button-summonerType" style="display: none" onclick="showDropdown('drop-down-summonerType')">召喚師屬性</button>
+        <div class="drop-down-list" id="drop-down-summonerType">
+          <div class="drop-down-choice" onclick="selectSummonerType('FF', prizeCards)">火</div>
+          <div class="drop-down-choice" onclick="selectSummonerType('WW', prizeCards)">水</div>
+          <div class="drop-down-choice" onclick="selectSummonerType('EE', prizeCards)">大地</div>
+          <div class="drop-down-choice" onclick="selectSummonerType('AA', prizeCards)">大氣</div>
+          <div class="drop-down-choice" onclick="selectSummonerType('GG', prizeCards)">森</div>
+          <div class="drop-down-choice" onclick="selectSummonerType('DD', prizeCards)">闇</div>
+          <div class="drop-down-choice" onclick="selectSummonerType('LL', prizeCards)">光</div>
+          <div class="drop-down-choice" onclick="selectSummonerType('MM', prizeCards)">機械</div>
+          <div class="drop-down-choice" onclick="selectSummonerType('KK', prizeCards)">黃金</div>
+          <div class="drop-down-choice" onclick="selectSummonerType('SS', prizeCards)">貝</div>
+          <div class="drop-down-choice" onclick="selectSummonerType('CC', prizeCards)">宇宙</div>
+          <div class="drop-down-choice" onclick="selectSummonerType('YY', prizeCards)">電氣</div>
+          <div class="drop-down-choice" onclick="selectSummonerType('ZZ', prizeCards)">次元</div>
+          <div class="drop-down-choice" onclick="selectSummonerType('OO', prizeCards)">魔</div>
+          <div class="drop-down-choice" onclick="selectSummonerType('HH', prizeCards)">星</div>
+          <div class="drop-down-choice" onclick="selectSummonerType('NN', prizeCards)">無</div>
+        </div>
+        <button class="drop-down-button" id="drop-down-button-summonerLevel" style="display: none" onclick="showDropdown('drop-down-summonerLevel')">召喚師等級</button>
+        <div class="drop-down-list" id="drop-down-summonerLevel">
+          <div class="drop-down-choice" onclick="selectSummonerLevel(0, prizeCards)">0</div>
+          <div class="drop-down-choice" onclick="selectSummonerLevel(1, prizeCards)">1</div>
+          <div class="drop-down-choice" onclick="selectSummonerLevel(2, prizeCards)">2</div>
+          <div class="drop-down-choice" onclick="selectSummonerLevel(3, prizeCards)">3</div>
+          <div class="drop-down-choice" onclick="selectSummonerLevel(4, prizeCards)">4</div>
+          <div class="drop-down-choice" onclick="selectSummonerLevel(5, prizeCards)">5</div>
+          <div class="drop-down-choice" onclick="selectSummonerLevel(6, prizeCards)">6</div>
+          <div class="drop-down-choice" onclick="selectSummonerLevel(7, prizeCards)">7</div>
+          <div class="drop-down-choice" onclick="selectSummonerLevel(8, prizeCards)">&#8734;</div>
+        </div>
+        <button class="drop-down-button" id="drop-down-button-monClass" style="display: none" onclick="showDropdown('drop-down-monClass')">種族</button>
+        <div class="drop-down-list" id="drop-down-monClass">
+          <div class="drop-down-choice" onclick="selectMonClass('DR', prizeCards)">龍</div>
+          <div class="drop-down-choice" onclick="selectMonClass('BU', prizeCards)">蟲</div>
+          <div class="drop-down-choice" onclick="selectMonClass('FH', prizeCards)">魚</div>
+          <div class="drop-down-choice" onclick="selectMonClass('BE', prizeCards)">獸</div>
+          <div class="drop-down-choice" onclick="selectMonClass('BI', prizeCards)">鳥</div>
+          <div class="drop-down-choice" onclick="selectMonClass('SH', prizeCards)">貝</div>
+          <div class="drop-down-choice" onclick="selectMonClass('ML', prizeCards)">男</div>
+          <div class="drop-down-choice" onclick="selectMonClass('FL', prizeCards)">女</div>
+          <div class="drop-down-choice" onclick="selectMonClass('SL', prizeCards)">SP 封鎖</div>
+          <div class="drop-down-choice" onclick="selectMonClass('FY', prizeCards)">妖精</div>
+          <div class="drop-down-choice" onclick="selectMonClass('DM', prizeCards)">闇魔導師</div>
+          <div class="drop-down-choice" onclick="selectMonClass('GW', prizeCards)">鬥神</div>
+        </div>
+        <button class="drop-down-button" id="drop-down-button-monType" style="display: none" onclick="showDropdown('drop-down-monType')">屬性</button>
+        <div class="drop-down-list" id="drop-down-monType">
+          <div class="drop-down-choice" onclick="selectMonType('FF', prizeCards)">火</div>
+          <div class="drop-down-choice" onclick="selectMonType('WW', prizeCards)">水</div>
+          <div class="drop-down-choice" onclick="selectMonType('EE', prizeCards)">大地</div>
+          <div class="drop-down-choice" onclick="selectMonType('AA', prizeCards)">大氣</div>
+          <div class="drop-down-choice" onclick="selectMonType('GG', prizeCards)">森</div>
+          <div class="drop-down-choice" onclick="selectMonType('DD', prizeCards)">闇</div>
+          <div class="drop-down-choice" onclick="selectMonType('LL', prizeCards)">光</div>
+          <div class="drop-down-choice" onclick="selectMonType('MM', prizeCards)">機械</div>
+          <div class="drop-down-choice" onclick="selectMonType('KK', prizeCards)">黃金</div>
+          <div class="drop-down-choice" onclick="selectMonType('SS', prizeCards)">貝</div>
+          <div class="drop-down-choice" onclick="selectMonType('CC', prizeCards)">宇宙</div>
+          <div class="drop-down-choice" onclick="selectMonType('YY', prizeCards)">電氣</div>
+          <div class="drop-down-choice" onclick="selectMonType('ZZ', prizeCards)">次元</div>
+          <div class="drop-down-choice" onclick="selectMonType('OO', prizeCards)">魔</div>
+          <div class="drop-down-choice" onclick="selectMonType('HH', prizeCards)">星</div>
+          <div class="drop-down-choice" onclick="selectMonType('NN', prizeCards)">無</div>
+        </div>
+        <button class="drop-down-button" id="drop-down-button-monPower" style="display: none" onclick="showDropdown('drop-down-monPower')">力量值</button>
+        <div class="drop-down-list" id="drop-down-monPower">
+          <div class="drop-down-choice" onclick="selectMonPower(0, prizeCards)">無</div>
+          <div class="drop-down-choice" onclick="selectMonPower(200, prizeCards)">200</div>
+          <div class="drop-down-choice" onclick="selectMonPower(110, prizeCards)">110</div>
+          <div class="drop-down-choice" onclick="selectMonPower(100, prizeCards)">100</div>
+          <div class="drop-down-choice" onclick="selectMonPower(90, prizeCards)">90</div>
+          <div class="drop-down-choice" onclick="selectMonPower(80, prizeCards)">80</div>
+          <div class="drop-down-choice" onclick="selectMonPower(70, prizeCards)">70</div>
+          <div class="drop-down-choice" onclick="selectMonPower(60, prizeCards)">60</div>
+          <div class="drop-down-choice" onclick="selectMonPower(50, prizeCards)">50</div>
+          <div class="drop-down-choice" onclick="selectMonPower(40, prizeCards)">40</div>
+          <div class="drop-down-choice" onclick="selectMonPower(30, prizeCards)">30</div>
+          <div class="drop-down-choice" onclick="selectMonPower(20, prizeCards)">20</div>
+          <div class="drop-down-choice" onclick="selectMonPower(10, prizeCards)">10</div>
+          <div class="drop-down-choice" onclick="selectMonPower(9, prizeCards)">9</div>
+          <div class="drop-down-choice" onclick="selectMonPower(8, prizeCards)">8</div>
+          <div class="drop-down-choice" onclick="selectMonPower(7, prizeCards)">7</div>
+          <div class="drop-down-choice" onclick="selectMonPower(6, prizeCards)">6</div>
+          <div class="drop-down-choice" onclick="selectMonPower(5, prizeCards)">5</div>
+          <div class="drop-down-choice" onclick="selectMonPower(4, prizeCards)">4</div>
+          <div class="drop-down-choice" onclick="selectMonPower(3, prizeCards)">3</div>
+          <div class="drop-down-choice" onclick="selectMonPower(2, prizeCards)">2</div>
+          <div class="drop-down-choice" onclick="selectMonPower(1, prizeCards)">1</div>
+          <div class="drop-down-choice" onclick="selectMonPower(-100, prizeCards)">-100</div>
+          <div class="drop-down-choice" onclick="selectMonPower(-200, prizeCards)">-200</div>
+        </div>
+      </div>
+      <div class="drag-box" id="drag-box-c"></div>
+    </div>
+
+    <div class="big-panel" id="take-away-panel">
+      <div class ="take-away-control-box">
+        <button id="take-prize-button" onclick="pickAward()">完成</button>
+        <div class="take-away-hints">
+          <div>提示：決定你的獎品咭後，點擊完成。</div>
+          <div id="take-away-hints"></div>
+        </div>
+      </div>
+      <div class="drag-box" id="drag-box-t"></div>
+    </div>
+  </div>
+    <!--Model-->
+    <script type = "text/javascript" src="Scripts/cardDB.js"></script>
+    <script type = "text/javascript" src="Scripts/sCardDB.js"></script>
+    <script type = "text/javascript" src="Scripts/defaultProfile.js"></script>
+    <script type = "text/javascript" src="Scripts/initializeDeckBuilder.js"></script>
+    <script type = "text/javascript" src="Scripts/prizecard.js"></script>
+    <script type = "text/javascript" src="Scripts/deckAndPrize.js"></script>
+    <!--View-->
+    <script type = "text/javascript" src="Scripts/cardPreview.js"></script>
+    <script type = "text/javascript" src="Scripts/promptMsg.js"></script>
+    <script type = "text/javascript" src="Scripts/xpBar.js"></script>
+    <!--Controller-->
+    <script type = "text/javascript" src="Scripts/utility.js"></script>
+    <script type = "text/javascript" src="Scripts/initializaePrizecard.js"></script>
+    <script>
+      // see utility.js for returnTitle()
+      document.getElementById('player-name').innerText = '召喚師稱號: ' + playerProfile[0].playerName + '（'+ returnTitle(playerProfile[0].exp)[1] + '）';
+      renderbar(playerProfile[0].exp, 0, 300, true);
+      initializePrizecard();
+    </script>
+</body>
+</html>
