@@ -1,0 +1,105 @@
+.player-panel-p1 {
+  height: 90px;
+  display: grid;
+  grid-template-columns: 320px 1fr ;
+}
+
+.player-panel-p2 {
+  margin-top: 75px;
+  height: 90px;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+}
+
+ .handcard-p1, .handcard-p2 {
+  background-color: var(--moz-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.dashboard-p1, .dashboard-p2 {
+  padding-left: 10px;
+  padding-right: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.dashboard-p1 {
+  background-color: var(--p2-mat-color);
+}
+
+.dashboard-p2 {
+  background-color: var(--p1-mat-color);
+}
+
+.dashboard-row {
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-p1-text-left, 
+.dashboard-p1-text-right, 
+.dashboard-p2-text-left,
+.dashboard-p2-text-right {
+  font-size: 14px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}      
+
+.dashboard-p1-text-left,
+.dashboard-p2-text-left {
+  width: 80px;
+}
+
+.dashboard-p1-text-right,
+.dashboard-p2-text-right {
+  flex: 1;
+  font-weight: bold;
+}
+
+.dashboard-p1-text-left, 
+.dashboard-p1-text-right {
+  color: black;
+}
+
+.dashboard-p2-text-left,
+.dashboard-p2-text-right {
+  color: white;
+}
+
+.handcard-button {
+  border-radius: 4px;
+  border: none;
+  background-color: transparent;
+  margin: 10px 5px;
+  overflow: hidden;
+  position: relative;
+  height: 60px;
+  width: 40px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.handcard-button:hover {
+  opacity: 0.8;
+}
+
+.handcard-button:active {
+  opacity: 0.6;
+}
+
+.handcard-button:disabled {
+  pointer-events: none;
+}
+
+.handcard-image {
+  height: 62px;
+  width: 41px;
+  position: absolute;
+  left: -1px;
+  top: -1.5px;
+  border: 0.5px solid var(--moz-color);
+}

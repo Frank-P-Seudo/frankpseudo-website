@@ -1,0 +1,35 @@
+#card-preview-panel {
+  position: fixed;
+  top: 75px;
+  left: 0;
+  right: 0;
+
+  height: 100%;
+  width: 100%;
+  background-color: var(--p2-mat-weak-color);
+
+  z-index: 9999;
+  display: none;
+  justify-content: center;
+  transition: display 0.2s;
+}
+
+#card-preview-img-container {
+  border-radius: 20px;
+  border: none;
+  background-color: transparent;
+  overflow: hidden;
+  height: 480px;
+  width: 320px;
+  padding: 0;
+  position: relative;
+}
+
+#card-preview-img {
+  border: none;
+  height: 481px;
+  width: 321px;
+  position: absolute;
+  left: -1.5px;
+  top: -1.5px;
+}

@@ -1,0 +1,138 @@
+.grid-panel {
+  margin-top: 75px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.big-panel {
+  display: grid;
+}
+
+#collection-panel {
+  grid-template-rows: 60px 770px;
+}
+
+#deck-panel {
+  grid-template-rows: 40px 135px 80px 60px 515px;
+}
+
+.drag-box,
+#search-panel-c,
+#search-panel-d,
+#legality-check-result {
+  border: 1px solid var(--p1-border-color);
+}
+
+.drop-down-button-container {
+  display: inline-block;
+}
+
+#search-panel-c,
+#search-panel-d {
+  display: flex;
+  align-items: top;
+  position: relative;
+}
+
+#deck-control-panel {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-left: 1px solid var(--p1-border-color);
+}
+
+#search-panel-c {
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.drag-box {
+  padding-top: 20px;
+  overflow-y: scroll;
+}
+
+#collection-panel,
+#search-panel-c {
+  background-color: var(--DP-bg-color);
+}
+
+#deck-panel {
+  background-color: var(--p2-mat-color);
+}
+
+#deck-list-panel,
+#deck-control-panel,
+#legality-check-result,
+#search-panel-d {
+  background-color: white;
+}
+
+.deck-list-nametag {
+  background-color: transparent;
+}
+
+.c-card-container {
+  border-radius: 20px;
+  border: none;
+  background-color: transparent;
+  overflow: hidden;
+  height: 210px;
+  width: 140px;
+  padding: 0;
+  position: relative;
+  margin: 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.d-card-container,
+.t-card-container {
+  border-radius: 10px;
+  border: none;
+  background-color: transparent;
+  overflow: hidden;
+  height: 105px;
+  width: 70px;
+  padding: 0;
+  position: relative;
+  margin: 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.no-result-msg {
+  margin: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.deck-control-button {
+  background-color: white;
+  min-width: 70px;
+  color: black;
+  box-shadow: inset 0px 0px 10px var(--p1-border-color);
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  border-radius: 4px;
+  padding: 6px 8px;
+}
+
+.deck-control-button:hover {
+  opacity: 0.7;
+}
+
+.deck-control-button:active {
+  opacity: 0.4;
+}
+
+.deck-control-button:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.legality-check-result {
+  font-size: 12px;
+  padding-left: 4px;
+  padding-right: 4px;
+}

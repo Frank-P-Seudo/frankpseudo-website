@@ -1,0 +1,29 @@
+:root {
+  --p1-mat-color: rgb(44, 102, 71); 
+  --p1-border-color: rgb(221, 221, 221);
+  --p2-mat-color: rgb(221, 221, 221);
+  --p2-border-color: rgb(44, 102, 71); 
+  --DP-bg-color: rgb(234, 233, 218);
+  --moz-color: rgb(91,57,41);
+  --moz-black: rgb(32,23,26);
+  --meiro-dark: rgb(99,51,49);
+  --meiro-light: rgb(214,92,69);
+  --meiro-yellow: rgb(244,229,135);
+
+  --button-bg-color: rgb(221, 221, 221);
+  --DP-bg-weak-color: rgba(234, 233, 218, 0.5);
+  --p2-mat-weak-color: rgba(221, 221, 221, 0.5);
+  --endgame-msg-color: rgba(221, 221, 221, 0.9);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  max-height: 100%;
+}

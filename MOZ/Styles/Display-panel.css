@@ -1,0 +1,176 @@
+.display-panel {
+  background-color: var(--DP-bg-color);
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+}
+
+.display-card-container {
+  border-radius: 20px;
+  border: none;
+  background-color: transparent;
+  overflow: hidden;
+  height: 360px;
+  width: 240px;
+  padding: 0;
+  position: relative;
+}
+
+#display-panel-button-container {
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play-buttons,
+.small-play-buttons {
+  background-color: var(--button-bg-color);
+  color: black;
+  box-shadow: 0px 0px 2px black;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.play-buttons {
+  border-radius: 4px;
+  padding: 6px 8px;
+}
+
+.small-play-buttons {
+  font-size: 12px;
+  border-radius: 2px;
+  padding: 4px 6px;
+}
+
+#play-N-button:hover, 
+#play-UD-button:hover,
+.play-buttons:hover,
+.small-play-buttons:hover {
+  opacity: 0.7;
+}
+
+#play-N-button:active, 
+#play-UD-button:active,
+.play-buttons:active,
+.small-play-buttons:active {
+  opacity: 0.4;
+}
+
+#play-N-button:disabled, 
+#play-UD-button:disabled,
+.play-buttons:disabled,
+.small-play-buttons:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+#play-N-button, 
+#play-UD-button {
+  margin: 12px;
+}
+
+#play-at-sky,
+#play-at-left,
+#play-at-right,
+#play-at-help,
+#play-at-sp {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.tooltip {
+  background-color: white;
+  color: black;
+  font-size: 14px;
+  padding: 4px 6px;
+  border: none;
+  border-radius: 6px;
+  position: absolute;
+  margin: 0px;
+  opacity: 0;
+  transition: opacity 0.15s;
+  pointer-events: none;
+}
+
+#tooltip-No-SP-button {
+  top: -60px;
+  right: 0;
+  width: 160px;
+}
+
+#tooltip-tempo-button {
+  top: -90px;
+  left: 0px;
+  width: 180px;
+}
+
+#noSP-button-container:hover .tooltip,
+#tempoUD-button-container:hover .tooltip {
+  opacity: 0.8;
+}
+
+#card-displayed {
+  width: 102%;
+  height: 102%;
+  top: -1%;
+  left: -1%;
+  position: absolute;
+}
+
+#arrow-to-left,
+#arrow-to-right {
+  position: absolute;
+  top: 150px;
+  width: 0;
+  height: 0;
+  background-color: transparent;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+  cursor: pointer;
+  z-index: 100;
+}
+
+#arrow-to-left {
+  left: -20px;
+  border-right: 30px solid grey;
+  border-left: 30px solid transparent;
+}
+
+#arrow-to-right {
+  right: -20px;
+  border-left: 30px solid grey;
+  border-right: 30px solid transparent;
+}
+
+#arrow-to-left:hover,
+#arrow-to-right:hover {
+  opacity: 0.5;
+}
+
+#arrow-to-left:active,
+#arrow-to-right:active {
+  opacity: 0.3;
+}
+
+#arrow-to-left:disabled,
+#arrow-to-right:disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dropdown-menu {
+  border-radius: 2px;
+  font-size: 12px;
+  padding: 1px;
+  background-color: var(--button-bg-color);
+}
