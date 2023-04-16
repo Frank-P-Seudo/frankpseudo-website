@@ -1014,7 +1014,8 @@ const cardEffect201 = (player, uniqueCardID, myResolve) => {
   new Promise(function(eggResolve) {
     blockEffect(player, uniqueCardID, 'monClass', 'FH', true, eggResolve);  // player, uniqueCardID, blockMode, blockedItem, recoverability
   }).then(func => {
-    if (player === currentTurn && turnSP === false && cardOnHandCheck(player, '226') === true) {
+    // quick fix: no prompt is triggered for p2
+    if (player === 'p1' && currentTurn === player && turnSP === false && cardOnHandCheck(player, '226') === true) {
       disableP1PlayButtons();
       turnClass = 'effect';  // turnClass may impact forfeitabilityCheck() and matCardDisplay()
       forfeitabilityCheck('p1');

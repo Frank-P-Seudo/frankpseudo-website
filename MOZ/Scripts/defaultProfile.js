@@ -623,7 +623,7 @@ let defaultProfile = [{
   exp: 0,
   activeSlot: 2,
 }, {
-  collection: defaultCollection
+  collection: testCollection
 }, {
   deckName: '地火',
   deck: earthFireDeck
