@@ -1,0 +1,88 @@
+:root {
+    --tea-color: rgb(189, 86, 32);     
+  }
+
+#root {
+    padding: 0;
+    margin: 0 auto;
+}
+
+body {
+    margin: 0;
+    background-color: antiquewhite;
+    font-family: 'Roboto', sans-serif;
+}
+
+.felipa {
+    font-family: 'Felipa', sans-serif;
+    font-size: 3rem;
+}
+
+#navbarSupportedContent button {
+    background-color: whitesmoke;
+    border-radius: 0.5rem;
+    padding: 0.3rem 1rem;
+    margin-right: 1rem;
+    font-weight: 700;
+    width: 100%;
+    opacity: 1;
+    transition: 0.15;
+}
+
+#navbarSupportedContent button:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+#navbarSupportedContent button:active {
+    cursor: pointer;
+    opacity: 0.4;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+section h3 {
+    /* text-decoration: underline; */
+    /* text-decoration-color: grey; */
+    font-weight: 700;
+    color: var(--tea-color);
+}
+
+.under-navbar {
+    position: absolute;
+    padding: 0rem 2rem;
+    margin: 0;
+    top: 8rem;        
+    bottom: 0rem;    
+    overflow-y: auto;
+}
+
+.nav-tabs a {
+    background-color: grey;
+    color: black;
+    font-weight: 400;
+}
+
+.nav-tabs .current {
+    background-color: var(--tea-color);
+    color: white;
+    font-weight: 700;
+}
+
+.hide {
+    display: none;
+}
+
+.surrounded {
+    border-style: solid;
+    border-radius: 0.3rem;
+    border-color: var(--tea-color);    
+    border-width: 0.08rem;    
+}
+
+.text-tea,
+.surrounded h4 {
+    color: var(--tea-color);    
+}
