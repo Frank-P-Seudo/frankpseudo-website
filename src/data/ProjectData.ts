@@ -2,7 +2,7 @@ import { Project, ProjectColumn } from "../common/interfaces";
 
 const dotnetProjects: Project[] = [
     {
-        image: "./public/project_pic_socialmediamarketer.png",
+        image: "./project_pic_socialmediamarketer.png",
         title: "project_title_socialmediamarketer",
         description: ["project_desc_socialmediamarketer_1", "project_desc_socialmediamarketer_2", "project_desc_socialmediamarketer_3"],
         tech: ["C#", ".NET", "TypeScript", "jQuery", "MySQL"],
