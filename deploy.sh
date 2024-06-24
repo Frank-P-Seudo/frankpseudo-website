@@ -5,6 +5,9 @@ set -e
 # build
 npm run build
 
+# copy everything from MOZ to dist
+cp -R MOZ dist/
+
 # navigate into the build output directory
 cd dist
 
@@ -12,7 +15,7 @@ cd dist
 echo > .nojekyll
 
 # if you are deploying to a custom domain
-# echo 'https://frankpseudo.com/' > CNAME
+echo 'https://frankpseudo.com/' > CNAME
 
 git init
 git checkout -B main
