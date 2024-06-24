@@ -5,9 +5,6 @@ set -e
 # build
 npm run build
 
-# copy everything from MOZ to dist
-cp -R MOZ dist/
-
 # navigate into the build output directory
 cd dist
 
