@@ -1,0 +1,44 @@
+#take-away-panel {
+  grid-template-rows: 60px 770px;
+  background-color: var(--p2-mat-color);
+}
+
+.take-away-control-box {
+  display: grid;
+  grid-template-columns: 90px 370px;
+  border-bottom: 2px solid white;
+}
+
+.take-away-hints {
+  font-size: 12px;
+  padding-top: 4px;
+  padding-left: 4px;
+  vertical-align: middle;
+}
+
+#take-prize-button {
+  background-color: white;
+  width: 70px;
+  height: 40px;
+  color: black;
+  box-shadow: inset 0px 0px 10px var(--p1-border-color);
+  border: none;
+  border-radius: 4px;
+  padding: 6px 8px;
+  margin: 8px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+#take-prize-button:hover {
+  opacity: 0.7;
+}
+
+#take-prize-button:active {
+  opacity: 0.4;
+}
+
+#take-prize-button:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}

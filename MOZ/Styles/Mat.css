@@ -1,0 +1,264 @@
+.mat{
+  display: grid;
+  grid-template-columns: 320px 1fr 1fr;
+}
+
+#mat-p1 {
+  background-color: var(--p1-mat-color);
+
+}
+
+#mat-p2 {
+  background-color: var(--p2-mat-color);
+}
+
+#mat-p1, 
+#mat-p2 {
+  border: none;
+}
+
+.mat-row-filler {
+  height: 160px;
+}
+
+.mat-row {
+  margin: 8px 12px;
+  display: flex;
+  position: relative;
+}
+
+.p1-mat-extra-container,
+.p2-mat-extra-container {
+  position: relative;
+}
+
+/* containers of pictures */ 
+#mon-card-p1, 
+#mon-card-p2, 
+.queue-p1, 
+.custody-p1, 
+.queue-p2, 
+.custody-p2,
+.p1-mat-card-button,
+.p1-mat-card-button-h,
+.p2-mat-card-button,
+.p2-mat-card-button-h {
+  border-radius: 4px;
+  background-color: transparent;
+  margin: 10px 5px;
+  z-index: 100;
+  overflow: hidden;
+  position: relative;
+}
+
+#mon-card-p1,
+.queue-p1,
+.custody-p1,
+.p1-mat-card-button,
+.p1-mat-card-button-h {
+  border: 1px solid var(--p1-border-color);
+}
+
+#mon-card-p2,
+.queue-p2,
+.custody-p2,
+.p2-mat-card-button,
+.p2-mat-card-button-h {
+  border: 1px solid var(--p2-border-color);
+  transform: rotateZ(180deg);
+}
+
+#mon-card-p1, 
+#mon-card-p2, 
+.queue-p1, 
+.custody-p1, 
+.queue-p2, 
+.custody-p2,
+.p1-mat-card-button, 
+.p2-mat-card-button {
+  height: 60px;
+  width: 40px;
+}
+
+.p1-mat-card-button-h, .p2-mat-card-button-h {
+  height: 40px;
+  width: 60px;
+}
+
+.queue-p1 {
+  position: absolute;
+  left: 45px;
+  top: -45px;
+}
+
+.custody-p1 {
+  position: absolute;
+  right: 0px;
+  top: -45px;
+}
+
+.queue-p2 {
+  position: absolute;
+  right: 45px;
+  bottom: -45px;
+}
+
+.custody-p2 {
+  position: absolute;
+  left: 0px;
+  bottom: -45px;
+}
+
+.filler-fixed {
+  height: 60px;
+  width: 40px;
+  margin: 10px 5px;
+}
+
+.filler-flex {
+  flex: 1;
+}
+
+.queue-p1, 
+.custody-p1, 
+.queue-p2, 
+.custody-p2, 
+.p1-mat-card-button,
+.p1-mat-card-button-h,
+.p2-mat-card-button,
+.p2-mat-card-button-h {
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.queue-p1:hover, 
+.custody-p1:hover, 
+.queue-p2:hover, 
+.custody-p2:hover, 
+.p1-mat-card-button:hover, 
+.p1-mat-card-button-h:hover,
+.p2-mat-card-button:hover,
+.p2-mat-card-button-h:hover {
+  opacity: 0.8;
+}
+
+.queue-p1:active, 
+.custody-p1:active, 
+.queue-p2:active, 
+.custody-p2:active, 
+.p1-mat-card-button:active,
+.p1-mat-card-button-h:active,
+.p2-mat-card-button:active,
+.p2-mat-card-button-h:active {
+  opacity: 0.6;
+}
+
+.queue-p1:disabled, 
+.custody-p1:disabled, 
+.queue-p2:disabled, 
+.custody-p2:disabled, 
+.p1-mat-card-button:disabled,
+.p1-mat-card-button-h:disabled,
+.p2-mat-card-button:disabled,
+.p2-mat-card-button-h:disabled {
+  pointer-events: none;
+}
+
+.mat-icon-vertical {
+  height: 61px;
+  width: 41px;
+  position: absolute;
+  left: -1.5px;
+  top: -1.5px;
+}
+
+.mat-icon-horizonal {
+  height: 42px;
+  width: 63px;
+  position: absolute;
+  left: -1.5px;
+  top: -1px;
+}
+
+#p1-mat-zone,
+#p2-mat-zone {
+  height: 63px;
+  width: 42px;
+}
+
+/* extra container created to contain bubbles */ 
+.p1-mat-extra-container,
+.p2-mat-extra-container {
+  position: relative;
+}
+
+.p1-mat-bubble,
+.p2-mat-bubble,
+.p1-mat-bubble-h,
+.p2-mat-bubble-h {
+  position: absolute;
+  margin: 0;
+  display: inline-block;
+  
+  border-radius: 50%;
+  height: 16px;
+  width: 16px;
+  padding-top: 2px;
+  text-align: center;
+  font-size: 9px;
+  z-index: 250;
+}
+
+.p1-mat-bubble,
+.p1-mat-bubble-h {
+  color: transparent;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.p2-mat-bubble,
+.p2-mat-bubble-h {
+  color: transparent;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.p1-mat-bubble {
+  left: 35px;
+  top: 0;
+}
+
+.p1-mat-bubble-h {
+  left: 55px;
+  top: 0;
+}
+
+.p2-mat-bubble {
+  left: 0;
+  top: 60px;
+}
+
+.p2-mat-bubble-h {
+  left: 0;
+  top: 40px;
+}
+
+#p1-mat-queue-button-bubble {
+  top: -45px;
+  left: 80px;
+}
+
+#p1-mat-custody-button-bubble {
+  top: -45px;
+  left: -15px;
+}
+
+#p2-mat-queue-button-bubble {
+  top: 105px;
+  left: -100px;
+}
+
+#p2-mat-custody-button-bubble {
+  top: 105px;
+  left: 0;
+}

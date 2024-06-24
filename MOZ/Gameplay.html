@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOZ REBORN - BETA</title>
+    <link rel="stylesheet" href="Styles/General.css">
+    <link rel="stylesheet" href="Styles/Header.css">
+    <link rel="stylesheet" href="Styles/Player-panel.css">
+    <link rel="stylesheet" href="Styles/Mat.css">
+    <link rel="stylesheet" href="Styles/Animation.css">
+    <link rel="stylesheet" href="Styles/Display-panel.css">
+    <link rel="stylesheet" href="Styles/Endgame.css">
+  </head>
+  <body>
+    <!--Header of the page. See Header.css for style.-->
+    <header class="header">
+      <img src="Icon_beta.png" alt="site-icon" style="height: 70px; margin-top: auto; margin-bottom: auto;">
+      <button id="drawCardp1But" class="header-buttons" onclick="drawCard('p1', 1)" disabled>抽咭</button>
+      <button id="playSummonersBut" class="header-buttons" onclick="playSummoners()" disabled>打出召喚師</button>
+      <button id="p1ForfeitBut" class="header-buttons" onclick="forfeitConfirmMsg()" disabled>放棄</button>
+      <a href="https://zh.m.wikipedia.org/zh-hk/MOZ_%E5%8F%AC%E5%96%9A%E7%8E%8B" class="header-text" target=”_blank”>遊戯規則</a>
+    </header>
+    <div id="alert-container">
+      <div class="alert-box">
+        <div id="alert-text"></div>
+        <select id="alert-select" class="alert-dropdown-menu"></select>
+        <div>
+          <button id="alert-button1" class="play-buttons"></button>  
+          <button id="alert-button2" class="play-buttons"></button>  
+        </div>
+      </div>
+    </div>
+    <div id="endgame-overlay">
+      <div id="overlay-container">
+        <div id="xp-grid">
+          <div id="xp-emblem" class="hex">
+            <div>
+              <div class="hex-left-big"></div>
+              <div class="hex-center-big"></div>
+              <div class="hex-right-big"></div>
+            </div>
+            <div class="small-hex">
+              <div class="hex-left"></div>
+              <div class="hex-center">
+                <div id="level-value"></div>
+              </div>
+              <div class="hex-right"></div>
+            </div>
+          </div>
+          <div class="xp-area">
+            <div id="xp-bar"></div>
+            <div id="total-xp-bar"></div>
+            <div id="xp-value"></div>
+          </div>
+        </div>
+        <div id="endgame-msg-short"></div>
+        <div id="endgame-msg-long"></div>
+        <button id="end-game-button"></button>
+      </div>
+    </div>
+    <!--Player panel for player 2. See Player-panel.css for style.-->
+    <div class="player-panel-p2">
+      <!--Left section of P2's player panel contains handcards.
+        P2 handcards are set as buttons (disabled by default) because 
+        certain card can view opponent's handcard.-->
+      <div class="handcard-p2">
+        <button class="handcard-button" id="p2-hand-c1-button" onclick="handCardDisplay('p2', 0)" disabled>
+          <img class="handcard-image" id="p2-hand-c1" src="CardBack/empty-slot.png">
+        </button>
+        <button class="handcard-button" id="p2-hand-c2-button" onclick="handCardDisplay('p2', 1)" disabled>
+          <img class="handcard-image" id="p2-hand-c2" src="CardBack/empty-slot.png">
+        </button>
+        <button class="handcard-button" id="p2-hand-c3-button" onclick="handCardDisplay('p2', 2)" disabled>
+          <img class="handcard-image" id="p2-hand-c3" src="CardBack/empty-slot.png">
+        </button>
+        <button class="handcard-button" id="p2-hand-c4-button" onclick="handCardDisplay('p2', 3)" disabled>
+          <img class="handcard-image" id="p2-hand-c4" src="CardBack/empty-slot.png">
+        </button>
+        <button class="handcard-button" id="p2-hand-c5-button" onclick="handCardDisplay('p2', 4)" disabled>
+          <img class="handcard-image" id="p2-hand-c5" src="CardBack/empty-slot.png">
+        </button>
+        <button class="handcard-button" id="p2-hand-c6-button" onclick="handCardDisplay('p2', 5)" disabled>
+          <img class="handcard-image" id="p2-hand-c6" src="CardBack/empty-slot.png">
+        </button>
+        <button class="handcard-button" id="p2-hand-c7-button" onclick="handCardDisplay('p2', 6)" disabled>
+          <img class="handcard-image" id="p2-hand-c7" src="CardBack/empty-slot.png">
+        </button>
+        <button class="handcard-button" id="p2-hand-c8-button" onclick="handCardDisplay('p2', 7)" disabled>
+          <img class="handcard-image" id="p2-hand-c8" src="CardBack/empty-slot.png">
+        </button>
+        <button class="handcard-button" id="p2-hand-c9-button" onclick="handCardDisplay('p2', 8)" disabled>
+          <img class="handcard-image" id="p2-hand-c9" src="CardBack/empty-slot.png">
+        </button>
+      </div>
+      <!--Right section of P2's player panel contains a dashboard.-->
+      <div class="dashboard-p2">
+        <div class="dashboard-row">
+          <div class="dashboard-p2-text-left">召喚師稱號: </div>
+          <div id="display-p2-name" class="dashboard-p2-text-right"></div>
+        </div>
+        <div class="dashboard-row">
+          <div class="dashboard-p2-text-left">力量值: </div>
+          <div id="display-p2-power" class="dashboard-p2-text-right"></div>
+        </div>
+        <div class="dashboard-row">
+          <div class="dashboard-p2-text-left">積分點: </div>
+          <div id="display-p2-score" class="dashboard-p2-text-right"></div>
+        </div>
+      </div>
+    </div>
+
+    <!--Playmat. See Mat.css for style.-->
+    <div class="mat">
+      <!--Left section of playmat is display panel.-->
+      <div class="display-panel">
+        <div id="display-card-box">
+          <button id="arrow-to-left" onclick="pileViewLeft(pile)" disabled></button>
+          <div class="display-card-container">
+            <img id="card-displayed" src="CardBack/gurifu.jpg">
+          </div>
+          <button id="arrow-to-right" onclick="pileViewRight(pile)" disabled></button>
+        </div>
+
+        <div id="display-panel-button-container"></div>
+      </div>
+      <!--Middle section of playmat is P1's mat.-->
+      <div id="mat-p1">
+        <div class="mat-row-filler"></div>
+        <!--Row 1 of P1's mat.-->
+        <div class="mat-row">
+          <div class="filler-fixed"></div>
+          <div class="filler-fixed"></div>
+          <div id="p1-mat-sky-button-container" class="p1-mat-extra-container">
+            <div id="p1-mat-sky-button-bubble" class="p1-mat-bubble"></div>
+            <button id="p1-mat-sky-button" class="p1-mat-card-button" onclick="matCardDisplay(p1Sky)" disabled>
+              <img id="p1-mat-sky" class="mat-icon-vertical" src="Mat/Slot-mon-green.png">
+            </button>
+          </div>
+          <div class="filler-flex"></div>
+          <div id="p1-mat-hole-button-container" class="p1-mat-extra-container">
+            <div id="p1-mat-hole-button-bubble" class="p1-mat-bubble-h"></div>
+            <button id="p1-mat-hole-button" class="p1-mat-card-button-h" onclick="matCardDisplay(p1Hole)" disabled>
+              <img id="p1-mat-hole" class="mat-icon-horizonal" src="Mat/Slot-hole-grey.png">
+            </button>
+          </div>
+        </div>
+        <!--Row 2 of P1's mat.--> 
+        <div class="mat-row">
+          <div class="filler-fixed"></div>
+          <div id="p1-mat-left-button-container" class="p1-mat-extra-container">
+            <div id="p1-mat-left-button-bubble" class="p1-mat-bubble"></div>
+            <button id="p1-mat-left-button" class="p1-mat-card-button" onclick="matCardDisplay(p1Left)" disabled>
+              <img id="p1-mat-left" class="mat-icon-vertical" src="Mat/Slot-mon-green.png">
+            </button>
+          </div>
+          <div id="p1-mat-summoner-button-container" class="p1-mat-extra-container">
+            <div id="p1-mat-summoner-button-bubble" class="p1-mat-bubble"></div>
+            <button id="p1-mat-summoner-button" class="p1-mat-card-button" onclick="matCardDisplay(p1Summoner)" disabled>
+              <img id="p1-mat-summoner" class="mat-icon-vertical" src="Mat/Slot-summoner-green.png">
+            </button>
+          </div>
+          
+          <div id="p1-mat-right-button-container"  class="p1-mat-extra-container">
+            <div id="p1-mat-right-button-bubble" class="p1-mat-bubble"></div>
+            <button id="p1-mat-right-button" class="p1-mat-card-button" onclick="matCardDisplay(p1Right)" disabled>
+              <img id="p1-mat-right" class="mat-icon-vertical" src="Mat/Slot-mon-green.png">
+            </button>
+          </div>
+          <div class="filler-flex"></div>
+          <div id="p1-mat-zone-container" class="p1-mat-extra-container">
+            <div id="p1-mat-zone-bubble" class="p1-mat-bubble"></div>
+            <div id="mon-card-p1">
+              <img id="p1-mat-zone" class="mat-icon-vertical" src="Mat/Slot-zone-grey.png">
+            </div>
+          </div>
+          
+        </div>
+        <!--Row 3 of P1's mat.--> 
+        <div class="mat-row">
+          <div class="filler-fixed"></div>
+          <div class="filler-fixed"></div>
+          <div id="p1-mat-help-button-container" class="p1-mat-extra-container">
+            <div id="p1-mat-help-button-bubble" class="p1-mat-bubble"></div>
+            <button id="p1-mat-help-button" class="p1-mat-card-button" onclick="matCardDisplay(p1Help)" disabled>
+              <img id="p1-mat-help" class="mat-icon-vertical" src="Mat/Slot-help-green.png">
+            </button>
+          </div>
+          <div class="filler-flex"></div>
+        </div>
+        <!--Row 4 of P1's mat.--> 
+        <div class="mat-row">
+          <div id="p1-mat-queue-button-container" class="p1-mat-extra-container">
+            <div id="p1-mat-queue-button-bubble" class="p1-mat-bubble"></div>
+            <button id="p1-mat-queue-button" class="queue-p1" onclick="matCardDisplay(p1Queue)" disabled>
+              <img id="p1-mat-queue" class="mat-icon-vertical" src="Mat/Slot-zone-green.png">
+            </button>
+          </div>
+          <div class="filler-fixed"></div>
+          <div class="filler-fixed"></div>
+          <div id="p1-mat-sp-button-container" class="p1-mat-extra-container">
+            <div id="p1-mat-sp-button-bubble" class="p1-mat-bubble"></div>
+            <button id="p1-mat-sp-button" class="p1-mat-card-button" onclick="matCardDisplay(p1SP)" disabled>
+              <img id="p1-mat-sp" class="mat-icon-vertical" src="Mat/Slot-sp-green.png">
+            </button>
+          </div>
+          <div class="filler-flex"></div>
+          <div id="p1-mat-custody-button-container" class="p1-mat-extra-container">
+            <div id="p1-mat-custody-button-bubble" class="p1-mat-bubble"></div>
+            <button id="p1-mat-custody-button" class="custody-p1" onclick="matCardDisplay(p1Custody)" disabled>
+              <img id="p1-mat-custody" class="mat-icon-vertical" src="Mat/Slot-custody-green.png">
+            </button>
+          </div>
+          <div id="p1-mat-used-button-container" class="p1-mat-extra-container">
+            <div id="p1-mat-used-button-bubble" class="p1-mat-bubble"></div>
+            <button id="p1-mat-used-button" class="p1-mat-card-button" onclick="matCardDisplay(p1Used)" disabled>
+              <img id="p1-mat-used" class="mat-icon-vertical" src="Mat/Slot-used-green.png">
+            </button>
+          </div>
+          
+        </div>
+      </div>
+      <!--Right section of playmat is P2's mat.-->
+      <div id="mat-p2">
+        <!--Row 4 of P2's mat.-->
+        <div class="mat-row">
+          <div id="p2-mat-used-button-container" class="p2-mat-extra-container">
+            <div id="p2-mat-used-button-bubble" class="p2-mat-bubble"></div>
+            <button id="p2-mat-used-button" class="p2-mat-card-button" onclick="matCardDisplay(p2Used)" disabled>
+              <img id="p2-mat-used" class="mat-icon-vertical" src="Mat/Slot-used-grey.png">
+            </button>
+          </div>
+          <div id="p2-mat-custody-button-container" class="p2-mat-extra-container">
+            <div id="p2-mat-custody-button-bubble" class="p2-mat-bubble"></div>
+            <button id="p2-mat-custody-button" class="custody-p2" onclick="matCardDisplay(p2Custody)" disabled>
+              <img id="p2-mat-custody" class="mat-icon-vertical" src="Mat/Slot-custody-grey.png">
+            </button>
+          </div>          
+          <div class="filler-flex"></div>
+          <div id="p2-mat-sp-button-container" class="p2-mat-extra-container">
+            <div id="p2-mat-sp-button-bubble" class="p2-mat-bubble"></div>
+            <button id="p2-mat-sp-button" class="p2-mat-card-button" onclick="matCardDisplay(p2SP)" disabled>
+              <img id="p2-mat-sp" class="mat-icon-vertical" src="Mat/Slot-sp-grey.png">
+            </button>
+          </div>
+          <div class="filler-fixed"></div>
+          <div class="filler-fixed"></div>
+          <div id="p2-mat-queue-button-container" class="p2-mat-extra-container">
+            <div id="p2-mat-queue-button-bubble" class="p2-mat-bubble"></div>
+            <button id="p2-mat-queue-button" class="queue-p2" onclick="matCardDisplay(p2Queue)" disabled>
+              <img id="p2-mat-queue" class="mat-icon-vertical" src="Mat/Slot-zone-green.png">
+            </button>
+          </div>
+        </div>
+        <!--Row 3 of P2's mat.-->
+        <div class="mat-row">
+          <div class="filler-flex"></div>
+          <div id="p2-mat-help-button-container" class="p2-mat-extra-container">
+            <div id="p2-mat-help-button-bubble" class="p2-mat-bubble"></div>
+            <button id="p2-mat-help-button" class="p2-mat-card-button" onclick="matCardDisplay(p2Help)" disabled>
+              <img id="p2-mat-help" class="mat-icon-vertical" src="Mat/Slot-help-grey.png">
+            </button>
+          </div>
+          <div class="filler-fixed"></div>
+          <div class="filler-fixed"></div>
+        </div>
+        <!--Row 2 of P2's mat.-->
+        <div class="mat-row">
+          <div id="p2-mat-zone-container" class="p2-mat-extra-container">
+            <div id="p2-mat-zone-bubble" class="p2-mat-bubble"></div>
+            <div id="mon-card-p2">
+              <img id="p2-mat-zone" class="mat-icon-vertical" src="Mat/Slot-zone-green.png">
+            </div>
+          </div>
+          <div class="filler-flex"></div>
+          <div id="p2-mat-right-button-container" class="p2-mat-extra-container">
+            <div id="p2-mat-right-button-bubble" class="p2-mat-bubble"></div>
+            <button id="p2-mat-right-button" class="p2-mat-card-button" onclick="matCardDisplay(p2Right)" disabled>
+              <img id="p2-mat-right" class="mat-icon-vertical" src="Mat/Slot-mon-grey.png">
+            </button>
+          </div>
+          <div id="p2-mat-summoner-button-container" class="p2-mat-extra-container">
+            <div id="p2-mat-summoner-button-bubble" class="p2-mat-bubble"></div>
+            <button id="p2-mat-summoner-button" class="p2-mat-card-button" onclick="matCardDisplay(p2Summoner)" disabled>
+              <img id="p2-mat-summoner" class="mat-icon-vertical" src="Mat/Slot-summoner-grey.png">
+            </button>
+          </div>
+          <div id="p2-mat-left-button-container" class="p2-mat-extra-container">
+            <div id="p2-mat-left-button-bubble" class="p2-mat-bubble"></div>
+            <button id="p2-mat-left-button" class="p2-mat-card-button" onclick="matCardDisplay(p2Left)" disabled>
+              <img id="p2-mat-left" class="mat-icon-vertical" src="Mat/Slot-mon-grey.png">
+            </button>
+          </div>
+          <div class="filler-fixed"></div>
+        </div>        
+        <!--Row 1 of P2's mat.-->
+        <div class="mat-row">
+          <div id="p2-mat-hole-button-container" class="p2-mat-extra-container">
+            <div id="p2-mat-hole-button-bubble" class="p2-mat-bubble-h"></div>
+            <button id="p2-mat-hole-button" class="p2-mat-card-button-h" onclick="matCardDisplay(p2Hole)" disabled>
+              <img id="p2-mat-hole" class="mat-icon-horizonal" src="Mat/Slot-hole-green.png">
+            </button>
+          </div>
+          <div class="filler-flex"></div>
+          <div id="p2-mat-sky-button-container" class="p2-mat-extra-container">
+            <div id="p2-mat-sky-button-bubble" class="p2-mat-bubble"></div>
+            <button id="p2-mat-sky-button" class="p2-mat-card-button" onclick="matCardDisplay(p2Sky)" disabled>
+              <img id="p2-mat-sky" class="mat-icon-vertical" src="Mat/Slot-mon-grey.png">
+            </button>
+          </div>
+          <div class="filler-fixed"></div>
+          <div class="filler-fixed"></div>
+        </div>
+      </div>
+    </div>
+
+    <!--Player panel for player 1. See Player-panel.css for style.-->
+    <div class="player-panel-p1">
+      <!--Left section of P1's player panel contains a dashboard.-->
+      <div class="dashboard-p1">
+        <div class="dashboard-row">
+          <div class="dashboard-p1-text-left">召喚師稱號: </div>
+          <div id="display-p1-name" class="dashboard-p1-text-right"></div>
+        </div>
+        <div class="dashboard-row">
+          <div class="dashboard-p1-text-left">力量值: </div>
+          <div id="display-p1-power" class="dashboard-p1-text-right"></div>
+        </div>
+        <div class="dashboard-row">
+          <div class="dashboard-p1-text-left">積分點: </div>
+          <div id="display-p1-score" class="dashboard-p1-text-right"></div>
+        </div>
+      </div>
+      <!--Right section of P1's player panel contains handcards.-->
+      <div class="handcard-p1">
+        <button class="handcard-button" id="p1-hand-c1-button" onclick="handCardDisplay('p1', 0)" disabled>
+          <img class="handcard-image" id="p1-hand-c1" src="CardBack/empty-slot.png">
+        </button>
+        <button class="handcard-button" id="p1-hand-c2-button" onclick="handCardDisplay('p1', 1)" disabled>
+          <img class="handcard-image" id="p1-hand-c2" src="CardBack/empty-slot.png">
+        </button>
+        <button class="handcard-button" id="p1-hand-c3-button" onclick="handCardDisplay('p1', 2)" disabled>
+          <img class="handcard-image" id="p1-hand-c3" src="CardBack/empty-slot.png">
+        </button>
+        <button class="handcard-button" id="p1-hand-c4-button" onclick="handCardDisplay('p1', 3)" disabled>
+          <img class="handcard-image" id="p1-hand-c4" src="CardBack/empty-slot.png">
+        </button>
+        <button class="handcard-button" id="p1-hand-c5-button" onclick="handCardDisplay('p1', 4)" disabled>
+          <img class="handcard-image" id="p1-hand-c5" src="CardBack/empty-slot.png">
+        </button>
+        <button class="handcard-button" id="p1-hand-c6-button" onclick="handCardDisplay('p1', 5)" disabled>
+          <img class="handcard-image" id="p1-hand-c6" src="CardBack/empty-slot.png">
+        </button>
+        <button class="handcard-button" id="p1-hand-c7-button" onclick="handCardDisplay('p1', 6)" disabled>
+          <img class="handcard-image" id="p1-hand-c7" src="CardBack/empty-slot.png">
+        </button>
+        <button class="handcard-button" id="p1-hand-c8-button" onclick="handCardDisplay('p1', 7)" disabled>
+          <img class="handcard-image" id="p1-hand-c8" src="CardBack/empty-slot.png">
+        </button>
+        <button class="handcard-button" id="p1-hand-c9-button" onclick="handCardDisplay('p1', 8)" disabled>
+          <img class="handcard-image" id="p1-hand-c9" src="CardBack/empty-slot.png">
+        </button>
+      </div>
+    </div>
+    <!--Disclaimer, which may move somewhere else later-->
+    <div class="disclaimer-text">
+      This site is for fan enjoyment only and not for profit. The creator of this site does not claim to own, or to have invented, any copyrighted characters and concepts presented on this site.
+    </div>
+    
+    <!--Model-->
+    <script type = "text/javascript" src="Scripts/cardDB.js"></script>
+    <script type = "text/javascript" src="Scripts/sCardDB.js"></script>
+    <script type = "text/javascript" src="Scripts/deck.js"></script>
+    <script type = "text/javascript" src="Scripts/sDeck.js"></script>
+    <script type = "text/javascript" src="Scripts/variablesGameplay.js"></script>
+    <script type = "text/javascript" src="Scripts/blockListUpdate.js"></script>
+    <!--View-->
+    <script type = "text/javascript" src="Scripts/render.js"></script>
+    <script type = "text/javascript" src="Scripts/p1ButtonMenu.js"></script>
+    <script type = "text/javascript" src="Scripts/promptMsg.js"></script>
+    <script type = "text/javascript" src="Scripts/animation.js"></script>
+    <script type = "text/javascript" src="Scripts/endGame.js"></script>
+    <!--Controller-->
+    <script type = "text/javascript" src="Scripts/initializationGameplay.js"></script>
+    <script type = "text/javascript" src="Scripts/draw.js"></script>
+    <script type = "text/javascript" src="Scripts/conditionCheck.js"></script>
+    <script type = "text/javascript" src="Scripts/preconditionCheck.js"></script>
+    <script type = "text/javascript" src="Scripts/overrideAdjust.js"></script>
+    <script type = "text/javascript" src="Scripts/play.js"></script>
+    <script type = "text/javascript" src="Scripts/playSummoners.js"></script>
+    <script type = "text/javascript" src="Scripts/forfeit.js"></script>
+    <script type = "text/javascript" src="Scripts/cardEffect.js"></script>
+    <script type = "text/javascript" src="Scripts/switchSideEffects.js"></script>
+    <script type = "text/javascript" src="Scripts/switchCardEffects.js"></script>
+    <script type = "text/javascript" src="Scripts/switchSummonerEffects.js"></script>
+    <script type = "text/javascript" src="Scripts/cardEffectSummoner.js"></script>
+    <script type = "text/javascript" src="Scripts/cardEffectMon.js"></script>
+    <script type = "text/javascript" src="Scripts/cardEffectCh.js"></script>
+    <script type = "text/javascript" src="Scripts/cardEffectR.js"></script>
+    <script type = "text/javascript" src="Scripts/cardEffectHelp.js"></script>
+    <script type = "text/javascript" src="Scripts/cardEffectHelpSP.js"></script>
+    <script type = "text/javascript" src="Scripts/cardEffectSP.js"></script>
+    <script type = "text/javascript" src="Scripts/postGameEffects.js"></script>
+    <script type = "text/javascript" src="Scripts/applyDmg.js"></script>
+    <script type = "text/javascript" src="Scripts/levelUp.js"></script>
+    <script type = "text/javascript" src="Scripts/summonerPowerUp.js"></script>
+    <script type = "text/javascript" src="Scripts/AI.js"></script>
+    <script type = "text/javascript" src="Scripts/calPower.js"></script>
+    <script type = "text/javascript" src="Scripts/calScore.js"></script>
+    <script type = "text/javascript" src="Scripts/turnControl.js"></script>
+    <script type = "text/javascript" src="Scripts/SPturn.js"></script>
+    <script type = "text/javascript" src="Scripts/utility.js"></script>
+    <script>initializeGame();</script>
+  </body>
+</html>

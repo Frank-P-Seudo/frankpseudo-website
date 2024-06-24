@@ -1,0 +1,111 @@
+.xp-grid {
+  display: grid;
+  grid-template-columns: 80px 370px;
+}
+
+.xp-area {
+  position: relative;
+}
+
+#xp-bar,
+#total-xp-bar {
+  position: absolute;
+  top: 30px;
+  left: 0px;
+  height: 15px;
+  width: 0px;
+}
+
+#xp-bar {
+  background-color: blue;
+  z-index: 120;
+}
+
+#total-xp-bar {
+  background-color: grey;
+  z-index: 110;
+}
+
+#xp-value {
+  position: absolute;
+  top: 30px;
+  left: 305px;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+#player-name {
+  position: absolute;
+  top: 10px;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.hex {
+  position: relative;
+}
+
+.small-hex {
+  position: absolute;
+  top: 5.2px;
+  left: 6px;
+}
+
+.hex-left,
+.hex-right {
+  float: left;
+  margin: 0px;
+  border-top: 26px solid transparent;
+  border-bottom: 26px solid transparent;
+}
+
+.hex-left {
+  border-right: 15px solid var(--meiro-yellow);
+}
+
+.hex-right {
+  border-left: 15px solid var(--meiro-yellow);
+}
+
+.hex-center {
+  float: left;
+  margin: 0px;
+  width: 30px;
+  height: 52px;
+  background-color: var(--meiro-yellow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hex-left-big,
+.hex-right-big {
+  float: left;
+  margin: 0px;
+  border-top: 31.2px solid transparent;
+  border-bottom: 31.2px solid transparent;
+}
+
+.hex-left-big {
+  border-right: 18px solid var(--meiro-light);
+}
+
+.hex-right-big {
+  border-left: 18px solid var(--meiro-light);
+}
+
+.hex-center-big {
+  float: left;
+  margin: 0px;
+  width: 36px;
+  height: 62.4px;
+  background-color: var(--meiro-light);
+}
+
+#level-value {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--meiro-dark);
+}

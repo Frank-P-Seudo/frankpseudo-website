@@ -1,0 +1,833 @@
+.p1-animated-card,
+.p2-animated-card {
+  position: absolute; 
+  border-radius: 4px; 
+  height: 60px; 
+  width: 40px; 
+  background-color: transparent; 
+  overflow: hidden;
+  margin: 10px 5px;
+}
+
+.p1-animated-card {
+  border: 1px solid var(--p1-border-color);
+}
+
+.p2-animated-card {
+  border: 1px solid var(--p2-border-color);
+  transform: rotateZ(180deg);
+}
+
+/* animation for shuffling (up to 10 cuts at a time)*/
+#p1-animated-card-zone-1,
+#p1-animated-card-zone-2,
+#p1-animated-card-zone-3,
+#p1-animated-card-zone-4,
+#p1-animated-card-zone-5,
+#p1-animated-card-zone-6,
+#p1-animated-card-zone-7,
+#p1-animated-card-zone-8,
+#p1-animated-card-zone-9,
+#p1-animated-card-zone-10,
+#p2-animated-card-zone-1,
+#p2-animated-card-zone-2,
+#p2-animated-card-zone-3,
+#p2-animated-card-zone-4,
+#p2-animated-card-zone-5,
+#p2-animated-card-zone-6,
+#p2-animated-card-zone-7,
+#p2-animated-card-zone-8,
+#p2-animated-card-zone-9,
+#p2-animated-card-zone-10 {
+  left: 0px; top: 0px; 
+  animation-duration: 0.5s;
+}
+
+#p1-animated-card-zone-1,
+#p2-animated-card-zone-1 {
+  animation-name: deckShuffleTL;
+}
+
+#p1-animated-card-zone-2,
+#p2-animated-card-zone-2 {
+  animation-name: deckShuffleBL;
+  animation-delay: 0.125s;
+}
+
+#p1-animated-card-zone-3,
+#p2-animated-card-zone-3 {
+  animation-name: deckShuffleTR;
+  animation-delay: 0.25s;
+}
+
+#p1-animated-card-zone-4,
+#p2-animated-card-zone-4 {
+  animation-name: deckShuffleBR;
+  animation-delay: 0.375s;
+}
+
+#p1-animated-card-zone-5,
+#p2-animated-card-zone-5 {
+  animation-name: deckShuffleBL;
+  animation-delay: 0.5s;
+}
+
+#p1-animated-card-zone-6,
+#p2-animated-card-zone-6 {
+  animation-name: deckShuffleTL;
+  animation-delay: 0.625s;
+}
+
+#p1-animated-card-zone-7,
+#p2-animated-card-zone-7 {
+  animation-name: deckShuffleBR;
+  animation-delay: 0.75s;
+}
+
+#p1-animated-card-zone-8,
+#p2-animated-card-zone-8 {
+  animation-name: deckShuffleTR;
+  animation-delay: 0.825s;
+}
+
+#p1-animated-card-zone-9,
+#p2-animated-card-zone-9 {
+  animation-name: deckShuffleTL;
+  animation-delay: 1s;
+}
+
+#p1-animated-card-zone-10,
+#p2-animated-card-zone-10 {
+  animation-name: deckShuffleBL;
+  animation-delay: 1.25s;
+}
+
+@keyframes deckShuffleTL {
+  0%   {z-index: 100;left: 0px; top: 0px; }
+  25%  {z-index: 100;left:-30px; top:-30px;}
+  50%  {z-index: 200;left: 0px; top: 0px; }
+  75%  {z-index: 200;left:30px; top:30px;}
+  100% {z-index: 100;left: 0px; top: 0px; }
+}
+
+@keyframes deckShuffleTR {
+  0%   {z-index: 200;left: 0px; top: 0px; }
+  25%  {z-index: 200;left:30px; top:-30px;}
+  50%  {z-index: 100;left: 0px; top: 0px; }
+  75%  {z-index: 100;left:-30px; top:30px;}
+  100% {z-index: 200;left: 0px; top: 0px; }
+}
+
+@keyframes deckShuffleBL {
+  0%   {z-index: 100;left: 0px; top: 0px; }
+  25%  {z-index: 100;left:-30px; top:30px;}
+  50%  {z-index: 200;left: 0px; top: 0px; }
+  75%  {z-index: 200;left:30px; top:-30px;}
+  100% {z-index: 100;left: 0px; top: 0px; }
+}
+
+@keyframes deckShuffleBR {
+  0%   {z-index: 200;left: 0px; top: 0px; }
+  25%  {z-index: 200;left:30px; top:30px;}
+  50%  {z-index: 100;left: 0px; top: 0px; }
+  75%  {z-index: 100;left:-30px; top:-30px;}
+  100% {z-index: 200;left: 0px; top: 0px; }
+}
+
+#p1-animated-card-queue-button-1,
+#p1-animated-card-queue-button-2,
+#p1-animated-card-queue-button-3,
+#p1-animated-card-queue-button-4 {
+  left: 45px; top: -45px; 
+  animation-duration: 0.5s;
+}
+
+#p1-animated-card-queue-button-1 {
+  animation-name: p1queueShuffleTL;
+}
+
+#p1-animated-card-queue-button-2 {
+  animation-name: p1queueShuffleBL;
+  animation-delay: 0.125s;
+}
+
+#p1-animated-card-queue-button-3 {
+  animation-name: p1queueShuffleTR;
+  animation-delay: 0.25s;
+}
+
+#p1-animated-card-queue-button-4 {
+  animation-name: p1queueShuffleBR;
+  animation-delay: 0.375s;
+}
+
+@keyframes p1queueShuffleTL {
+  0%   {z-index: 100;left:45px; top:-45px;}
+  25%  {z-index: 100;left:15px; top:-75px;}
+  50%  {z-index: 200;left:45px; top:-45px;}
+  75%  {z-index: 200;left:75px; top:-5px;}
+  100% {z-index: 100;left:45px; top:-45px;}
+}
+
+@keyframes p1queueShuffleTR {
+  0%   {z-index: 200;left:45px; top:-45px;}
+  25%  {z-index: 200;left:75px; top:-75px;}
+  50%  {z-index: 100;left:45px; top:-45px;}
+  75%  {z-index: 100;left:15px; top:-5px;}
+  100% {z-index: 200;left:45px; top:-45px;}
+}
+
+@keyframes p1queueShuffleBL {
+  0%   {z-index: 100;left:45px; top:-45px;}
+  25%  {z-index: 100;left:15px; top:-5px;}
+  50%  {z-index: 200;left:45px; top:-45px;}
+  75%  {z-index: 200;left:75px; top:-75px;}
+  100% {z-index: 100;left:45px; top:-45px;}
+}
+
+@keyframes p1queueShuffleBR {
+  0%   {z-index: 200;left:45px; top:-45px;}
+  25%  {z-index: 200;left:75px; top:-5px;}
+  50%  {z-index: 100;left:45px; top:-45px;}
+  75%  {z-index: 100;left:15px; top:-75px;}
+  100% {z-index: 200;left:45px; top:-45px;}
+}
+
+#p2-animated-card-queue-button-1,
+#p2-animated-card-queue-button-2,
+#p2-animated-card-queue-button-3,
+#p2-animated-card-queue-button-4 {
+  right: 45px; bottom: -45px;
+  animation-duration: 0.5s;
+}
+
+#p2-animated-card-queue-button-1 {
+  animation-name: p2queueShuffleTL;
+}
+
+#p2-animated-card-queue-button-2 {
+  animation-name: p2queueShuffleBL;
+  animation-delay: 0.125s;
+}
+
+#p2-animated-card-queue-button-3 {
+  animation-name: p2queueShuffleTR;
+  animation-delay: 0.25s;
+}
+
+#p2-animated-card-queue-button-4 {
+  animation-name: p2queueShuffleBR;
+  animation-delay: 0.375s;
+}
+
+@keyframes p2queueShuffleTL {
+  0%   {z-index: 100;right: 45px; bottom: -45px;}
+  25%  {z-index: 100;right: 75px; bottom: -15px;}
+  50%  {z-index: 200;right: 45px; bottom: -45px;}
+  75%  {z-index: 200;right: 15px; bottom: -75px;}
+  100% {z-index: 100;right: 45px; bottom: -45px;}
+}
+
+@keyframes p2queueShuffleTR {
+  0%   {z-index: 200;right: 45px; bottom: -45px;}
+  25%  {z-index: 200;right: 15px; bottom: -15px;}
+  50%  {z-index: 100;right: 45px; bottom: -45px;}
+  75%  {z-index: 100;right: 75px; bottom: -75px;}
+  100% {z-index: 200;right: 45px; bottom: -45px;}
+}
+
+@keyframes p2queueShuffleBL {
+  0%   {z-index: 100;right: 45px; bottom: -45px;}
+  25%  {z-index: 100;right: 75px; bottom: -75px;}
+  50%  {z-index: 200;right: 45px; bottom: -45px;}
+  75%  {z-index: 200;right: 15px; bottom: -15px;}
+  100% {z-index: 100;right: 45px; bottom: -45px;}
+}
+
+@keyframes p2queueShuffleBR {
+  0%   {z-index: 200;right: 45px; bottom: -45px;}
+  25%  {z-index: 200;right: 15px; bottom: -75px;}
+  50%  {z-index: 100;right: 45px; bottom: -45px;}
+  75%  {z-index: 100;right: 75px; bottom: -15px;}
+  100% {z-index: 200;right: 45px; bottom: -45px;}
+}
+
+/* animation for drawing cards (up to 7 cards at a time)*/
+#p1-animated-card-draw-1,
+#p1-animated-card-draw-2,
+#p1-animated-card-draw-3,
+#p1-animated-card-draw-4,
+#p1-animated-card-draw-5,
+#p1-animated-card-draw-6,
+#p1-animated-card-draw-7,
+#p2-animated-card-draw-1,
+#p2-animated-card-draw-2,
+#p2-animated-card-draw-3,
+#p2-animated-card-draw-4,
+#p2-animated-card-draw-5,
+#p2-animated-card-draw-6,
+#p2-animated-card-draw-7 {
+  left: 0px; top: 0px;
+  z-index: 150;
+  animation-duration: 0.3s;
+}
+
+#p1-animated-card-draw-2,
+#p2-animated-card-draw-2 {
+  animation-delay: 0.05s;
+}
+#p1-animated-card-draw-3,
+#p2-animated-card-draw-3 {
+  animation-delay: 0.1s;
+}
+#p1-animated-card-draw-4,
+#p2-animated-card-draw-4 {
+  animation-delay: 0.15s;
+}
+#p1-animated-card-draw-5,
+#p2-animated-card-draw-5 {
+  animation-delay: 0.2s;
+}
+#p1-animated-card-draw-6,
+#p2-animated-card-draw-6 {
+  animation-delay: 0.25s;
+}
+#p1-animated-card-draw-7,
+#p2-animated-card-draw-7 {
+  animation-delay: 0.3s;
+}
+
+#p1-animated-card-draw-1,
+#p1-animated-card-draw-2,
+#p1-animated-card-draw-3,
+#p1-animated-card-draw-4,
+#p1-animated-card-draw-5,
+#p1-animated-card-draw-6,
+#p1-animated-card-draw-7 {
+  animation-name: drawp1;
+}
+
+@keyframes drawp1 {
+  0%   {left: 0px; top: 0px;}
+  25%  {left: -120px; top: 70px;}
+  50%  {left: -200px; top: 140px;}
+  75%  {left: -280px; top: 210px;}
+  100% {left: -330px; top: 280px;}
+}
+
+#p2-animated-card-draw-1,
+#p2-animated-card-draw-2,
+#p2-animated-card-draw-3,
+#p2-animated-card-draw-4,
+#p2-animated-card-draw-5,
+#p2-animated-card-draw-6,
+#p2-animated-card-draw-7 {
+  animation-name: drawp2;
+}
+
+@keyframes drawp2 {
+  0%   {left: 0px; top: 0px;}
+  25%  {left: -120px; top: -70px;}
+  50%  {left: -280px; top: -140px;}
+  75%  {left: -340px; top: -210px;}
+  100% {left: -400px; top: -270px;}
+}
+
+/* animation for flipping cards upside down*/
+.p1-flipped-card-face,
+.p2-flipped-card-face,
+.p1-flipped-card-back,
+.p2-flipped-card-back {
+  border-radius: 4px;
+  background-color: transparent;
+  margin: 10px 5px;
+  overflow: hidden;
+  height: 60px;
+  width: 40px;
+  animation-duration: 0.5s;
+}
+
+.p1-flipped-card-face,
+.p2-flipped-card-face {
+  z-index: 100;
+  position: relative;
+}
+
+.p1-flipped-card-back,
+.p2-flipped-card-back {
+  z-index: 0;
+  position: absolute;
+  top: -1.5px;
+  left: -1.5px;
+}
+
+.p1-flipped-card-face {
+  border: 1px solid var(--p1-border-color);
+  animation-name: seen2unseenP1;
+}
+
+.p2-flipped-card-face {
+  border: 1px solid var(--p2-border-color);
+  transform: rotateZ(180deg);
+  animation-name: seen2unseenP2;
+}
+
+@keyframes seen2unseenP1 {
+  0%  {z-index: 100; transform: rotateY(0deg)}
+  49%  {z-index: 100; transform: rotateY(90deg)}
+  50%  {z-index: 0; transform: rotateY(90deg)}
+  100% {z-index: 0; transform: rotateY(180deg)}
+}
+
+@keyframes seen2unseenP2 {
+  0%  {z-index: 100; transform: rotateY(0deg) rotateZ(180deg)}
+  49%  {z-index: 100; transform: rotateY(90deg) rotateZ(180deg)}
+  50%  {z-index: 0; transform: rotateY(90deg) rotateZ(180deg)}
+  100% {z-index: 0; transform: rotateY(180deg) rotateZ(180deg)}
+}
+
+.p1-flipped-card-back {
+  border: 1px solid var(--p1-border-color);
+  animation-name: unseen2seenP1;
+}
+
+.p2-flipped-card-back {
+  border: 1px solid var(--p2-border-color);
+  animation-name: unseen2seenP2;
+  transform: rotateZ(180deg);
+}
+
+@keyframes unseen2seenP1 {
+  0%  {z-index: 0; transform: rotateY(180deg)}
+  49%  {z-index: 0; transform: rotateY(270deg)}
+  50%  {z-index: 100; transform: rotateY(270deg)}
+  100% {z-index: 100; transform: rotateY(360deg)}
+}
+
+@keyframes unseen2seenP2 {
+  0%  {z-index: 0; transform: rotateY(180deg) rotateZ(180deg)}
+  49%  {z-index: 0; transform: rotateY(270deg) rotateZ(180deg)}
+  50%  {z-index: 100; transform: rotateY(270deg) rotateZ(180deg)}
+  100% {z-index: 100; transform: rotateY(360deg) rotateZ(180deg)}
+}
+
+/* animation for playing cards from hand*/
+#p1-animated-card-sky,
+#p1-animated-card-left,
+#p1-animated-card-right,
+#p1-animated-card-help,
+#p1-animated-card-sp,
+#p1-animated-card-hole,
+#p2-animated-card-sky,
+#p2-animated-card-left,
+#p2-animated-card-right,
+#p2-animated-card-help,
+#p2-animated-card-sp,
+#p2-animated-card-hole {
+  left: 0px; top: 0px; 
+  z-index: 150;
+  animation-duration: 0.3s;
+}
+
+#p1-animated-card-sky {
+  animation-name: p1HandToSky;
+}
+
+#p1-animated-card-left {
+  animation-name: p1HandToLeft;
+}
+
+#p1-animated-card-right {
+  animation-name: p1HandToRight;
+}
+
+#p1-animated-card-help {
+  animation-name: p1HandToHelp;
+}
+
+#p1-animated-card-sp {
+  animation-name: p1HandToSP;
+}
+
+#p1-animated-card-hole {
+  animation-name: p1HandToHole;
+}
+
+@keyframes p1HandToSky {
+  0%  {left: -210px; top: 330px;}
+  100% {left: 0px; top: 0px;}
+}
+
+@keyframes p1HandToLeft {
+  0%  {left: -160px; top: 270px;}
+  100% {left: 0px; top: 0px;}
+}
+
+@keyframes p1HandToRight {
+  0%  {left: -240px; top: 270px;}
+  100% {left: 0px; top: 0px;}
+}
+
+@keyframes p1HandToHelp {
+  0%  {left: -210px; top: 210px;}
+  100% {left: 0px; top: 0px;}
+}
+
+@keyframes p1HandToSP {
+  0%  {left: -210px; top: 150px;}
+  100% {left: 0px; top: 0px;}
+}
+
+@keyframes p1HandToHole {
+  0%  {left: -270px; top: 330px;}
+  100% {left: 10px; top: -10px; transform: rotateZ(270deg);}
+}
+
+#p2-animated-card-sky {
+  animation-name: p2HandToSky;
+}
+
+#p2-animated-card-left {
+  animation-name: p2HandToLeft;
+}
+
+#p2-animated-card-right {
+  animation-name: p2HandToRight;
+}
+
+#p2-animated-card-help {
+  animation-name: p2HandToHelp;
+}
+
+#p2-animated-card-sp {
+  animation-name: p2HandToSP;
+}
+
+#p2-animated-card-hole {
+  animation-name: p2HandToHole;
+}
+
+@keyframes p2HandToSky {
+  0%  {left: -550px; top: -330px;}
+  100% {left: 0px; top: 0px;}
+}
+
+@keyframes p2HandToLeft {
+  0%  {left: -600px; top: -270px;}
+  100% {left: 0px; top: 0px;}
+}
+
+@keyframes p2HandToRight {
+  0%  {left: -500px; top: -270px;}
+  100% {left: 0px; top: 0px;}
+}
+
+@keyframes p2HandToHelp {
+  0%  {left: -550px; top: -210px;}
+  100% {left: 0px; top: 0px;}
+}
+
+@keyframes p2HandToSP {
+  0%  {left: -550px; top: -150px;}
+  100% {left: 0px; top: 0px;}
+}
+
+@keyframes p2HandToHole {
+  0%  {left: -490px; top: -330px;}
+  100% {left: 10px; top: -10px; transform: rotateZ(90deg)}
+}
+
+/* animation for revival from Hole*/
+#p1-re-animated-card-sky,
+#p1-re-animated-card-left,
+#p1-re-animated-card-right,
+#p2-re-animated-card-sky,
+#p2-re-animated-card-left,
+#p2-re-animated-card-right {
+  left: 0px; top: 0px; 
+  z-index: 110;
+  animation-duration: 0.3s;
+}
+
+#p1-re-animated-card-sky,
+#p1-re-animated-card-left,
+#p1-re-animated-card-right {
+  animation-name: p1Revival;
+}
+
+
+@keyframes p1Revival {
+  0%  {transform: rotateZ(0deg); top: -80px;}
+  10%  {transform: rotateZ(90deg); top: -80px;}
+  20%  {transform: rotateZ(180deg); top: -80px;}
+  30%  {transform: rotateZ(270deg); top: -80px;}
+  40%  {transform: rotateZ(360deg); top: -80px;}
+  50%  {transform: rotateZ(450deg); top: -80px;}
+  60%  {transform: rotateZ(540deg); top: -80px;}
+  70%  {transform: rotateZ(630deg); top: -80px;}
+  80%  {transform: rotateZ(720deg); top: -80px;}
+  100% {transform: rotateZ(720deg); top: 0px;}
+}
+
+/* First version of revival animation, which doesn't work if the screen is resized
+@keyframes p1HoleToLeft {
+  0%  {transform: rotateZ(270deg); left: 183px; top: 0px;}
+  100% {transform: rotateZ(0deg); left: 0px; top: 0px;}
+}
+
+@keyframes p1HoleToLeft {
+  0%  {transform: rotateZ(270deg); left: 233px; top: -82px;}
+  100% {transform: rotateZ(0deg); left: 0px; top: 0px;}
+}
+
+@keyframes p1HoleToRight {
+  0%  {transform: rotateZ(270deg); left: 133px; top: -82px;}
+  100% {transform: rotateZ(0deg); left: 0px; top: 0px;}
+}
+*/
+
+#p2-re-animated-card-sky,
+#p2-re-animated-card-left,
+#p2-re-animated-card-right {
+  animation-name: p2Revival;
+}
+
+@keyframes p2Revival {
+  0%  {transform: rotateZ(0deg); top: 80px;}
+  10%  {transform: rotateZ(90deg); top: 80px;}
+  20%  {transform: rotateZ(180deg); top: 80px;}
+  30%  {transform: rotateZ(270deg); top: 80px;}
+  40%  {transform: rotateZ(360deg); top: 80px;}
+  50%  {transform: rotateZ(450deg); top: 80px;}
+  60%  {transform: rotateZ(540deg); top: 80px;}
+  70%  {transform: rotateZ(630deg); top: 80px;}
+  80%  {transform: rotateZ(720deg); top: 80px;}
+  100% {transform: rotateZ(720deg); top: 0px;}
+}
+
+/* First version of revival animation, which doesn't work if the screen is resized
+@keyframes p2HoleToSky {
+  0%  {transform: rotateZ(90deg); left: -183px; top: 0px;}
+  100% {transform: rotateZ(180deg); left: 0px; top: 0px;}
+}
+
+@keyframes p2HoleToLeft {
+  0%  {transform: rotateZ(90deg); left: -233px; top: 82px;}
+  100% {transform: rotateZ(180deg); left: 0px; top: 0px;}
+}
+
+@keyframes p2HoleToRight {
+  0%  {transform: rotateZ(90deg); left: -133px; top: 82px;}
+  100% {transform: rotateZ(180deg); left: 0px; top: 0px;}
+}
+*/
+
+/* animation for flushing cards*/
+.p1-flushed-card-face,
+.p2-flushed-card-face {
+  border-radius: 4px;
+  background-color: transparent;
+  margin: 10px 5px;
+  overflow: hidden;
+  height: 61px;
+  width: 41px;
+  position: absolute;
+  left: -1.5px;
+  top: -1.5px;
+  z-index: 100;
+  animation-duration: 0.5s;
+  animation-name: flush;
+}
+
+.p1-flushed-card-face {
+  border: 1px solid var(--p1-border-color);
+}
+
+.p2-flushed-card-face {
+  border: 1px solid var(--p2-border-color);
+}
+
+@keyframes flush {
+  0%  {height: 60px; width: 40px; transform: rotateZ(0deg);}
+  25%  {height: 45px; width: 30px; transform: rotateZ(180deg);}
+  50%  {height: 30px; width: 20px; transform: rotateZ(360deg);}
+  75%  {height: 15px; width: 10px; transform: rotateZ(540deg);}
+  100%  {height: 6px; width: 4px; transform: rotateZ(720deg);}
+}
+
+/* animation for rotating playmates*/
+.rotated-mat {
+  animation-name: rotateMat;
+  animation-duration: 1s;
+}
+
+@keyframes rotateMat {
+  0%  {transform: rotateY(0deg);}
+  100% {transform: rotateY(360deg);}
+}
+
+/* Animation for playing a summoner card from Queue*/
+#p1-animated-card-summoner,
+#p2-animated-card-summoner {
+  left: 0px; top: 0px; 
+  z-index: 100;
+  animation-duration: 0.3s;
+}
+
+#p1-animated-card-summoner {
+  animation-name: p1QueueToSum;
+}
+
+@keyframes p1QueueToSum {
+  0%  {left: -50px; top: 131px}
+  100% {left: 0px; top: 0px}
+}
+
+#p2-animated-card-summoner {
+  animation-name: p2QueueToSum;
+}
+
+@keyframes p2QueueToSum {
+  0%  {left: 50px; top: -131px}
+  100% {left: 0px; top: 0px}
+}
+
+/* animation for exchanging cards*/
+.p1-old-face,
+.p2-old-face,
+.p1-new-face,
+.p2-new-face {
+  border-radius: 4px;
+  background-color: transparent;
+  margin: 10px 5px;
+  overflow: hidden;
+  height: 60px;
+  width: 40px;
+  animation-duration: 1s;
+}
+
+.p1-old-face,
+.p2-old-face {
+  z-index: 100;
+  position: relative;
+}
+
+.p1-new-face,
+.p2-new-face {
+  z-index: 0;
+  position: absolute;
+  top: -1.5px;
+  left: -1.5px;
+}
+
+.p1-old-face {
+  border: 1px solid var(--p1-border-color);
+  animation-name: seen2unseenP1old;
+}
+
+.p2-old-face {
+  border: 1px solid var(--p2-border-color);
+  transform: rotateZ(180deg);
+  animation-name: seen2unseenP2old;
+}
+
+@keyframes seen2unseenP1old {
+  0%  {z-index: 100; transform: rotateY(0deg)}
+  49%  {z-index: 100; transform: rotateY(90deg)}
+  50%  {z-index: 0; transform: rotateY(90deg)}
+  100% {z-index: 0; transform: rotateY(180deg)}
+}
+
+@keyframes seen2unseenP2old {
+  0%  {z-index: 100; transform: rotateY(0deg) rotateZ(180deg)}
+  49%  {z-index: 100; transform: rotateY(90deg) rotateZ(180deg)}
+  50%  {z-index: 0; transform: rotateY(90deg) rotateZ(180deg)}
+  100% {z-index: 0; transform: rotateY(180deg) rotateZ(180deg)}
+}
+
+.p1-new-face {
+  border: 1px solid var(--p1-border-color);
+  animation-name: unseen2seenP1new;
+}
+
+.p2-new-face {
+  border: 1px solid var(--p2-border-color);
+  animation-name: unseen2seenP2new;
+  transform: rotateZ(180deg);
+}
+
+@keyframes unseen2seenP1new {
+  0%  {z-index: 0; transform: rotateY(180deg)}
+  49%  {z-index: 0; transform: rotateY(270deg)}
+  50%  {z-index: 100; transform: rotateY(270deg)}
+  100% {z-index: 100; transform: rotateY(360deg)}
+}
+
+
+@keyframes unseen2seenP2new {
+  0%  {z-index: 0; transform: rotateY(180deg) rotateZ(180deg)}
+  49%  {z-index: 0; transform: rotateY(270deg) rotateZ(180deg)}
+  50%  {z-index: 100; transform: rotateY(270deg) rotateZ(180deg)}
+  100% {z-index: 100; transform: rotateY(360deg) rotateZ(180deg)}
+}
+
+/* 
+animation for swapping summoner cards
+see the animation for flushing cards for most styling
+*/
+.p1-swapped-queue,
+.p1-swapped-used,
+.p2-swapped-queue,
+.p2-swapped-used {
+  border-radius: 4px;
+  background-color: transparent;
+  margin: 10px 5px;
+  z-index: 100;
+  height: 60px;
+  width: 40px;
+  overflow: hidden;
+  position: relative;
+
+  animation-duration: 0.5s;
+}
+
+.p1-swapped-queue {
+  position: absolute;
+  left: 45px;
+  top: -45px;
+}
+
+.p2-swapped-queue {
+  position: absolute;
+  right: 45px;
+  bottom: -45px;
+}
+
+.p1-swapped-queue,
+.p1-swapped-used {
+  border: 1px solid var(--p1-border-color);
+  animation-name: summonerSwapP1;
+}
+
+.p2-swapped-queue,
+.p2-swapped-used {
+  border: 1px solid var(--p2-border-color);
+  transform: rotateZ(180deg);
+  animation-name: summonerSwapP2;
+}
+
+@keyframes summonerSwapP1 {
+  0%  {transform: rotateZ(0deg)}
+  25%  {transform: rotateZ(180deg)}
+  50%  {transform: rotateZ(360deg)}
+  75%  {transform: rotateZ(540deg)}
+  100% {transform: rotateZ(720deg)}
+}
+
+@keyframes summonerSwapP2 {
+  0%  {transform: rotateZ(180deg)}
+  25%  {transform: rotateZ(360deg)}
+  50%  {transform: rotateZ(540deg)}
+  75%  {transform: rotateZ(720deg)}
+  100% {transform: rotateZ(900deg)}
+}

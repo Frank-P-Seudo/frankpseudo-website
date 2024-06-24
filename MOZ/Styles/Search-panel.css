@@ -1,0 +1,96 @@
+.drop-down-button {
+  font-size: 12px;
+  min-width: 60px;
+  height: 28px;
+  margin: 10px 40px 4px 10px;
+  padding: 6px 8px;
+  background-color: var(--button-bg-color);
+  color: black;
+  box-shadow: 0px 0px 2px black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.drop-down-button:hover,
+.drop-down-choice:hover {
+  opacity: 0.7;
+}
+
+.drop-down-button:active,
+.drop-down-choice:active {
+  opacity: 0.4;
+}
+
+.drop-down-button:disabled,
+.drop-down-choice:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.drop-down-list {
+  width: 100px;
+  margin-left: 10px;
+  display: none;
+  background-color: var(--button-bg-color);
+  color: black;
+  box-shadow: 0px 0px 2px black;
+  border: none;
+  border-radius: 2px;
+  z-index: 200;
+  position: absolute;
+  top: 16px;
+}
+
+.drop-down-choice {
+  font-size: 12px;
+  padding: 3px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  z-index: 200;
+}
+
+#drop-down-series {
+  left: 120px;
+}
+
+#drop-down-cardType-c {
+  left: 230px;
+}
+
+#drop-down-monClass,
+#drop-down-summonerType {
+  position: absolute;
+  top: 16px;
+  left: 340px;
+}
+
+#drop-down-monType,
+#drop-down-summonerLevel {
+  left: 450px;
+}
+
+#drop-down-monPower {
+  left: 560px;
+}
+
+.tab-button {
+  flex: 1;
+  background-color: var(--p2-mat-weak-color);
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 4px 6px;
+  transition: 0.3s;
+  font-size: 11px;
+}
+
+.tab-button:hover {
+  background-color: var(--p2-mat-color);
+}
+
+#tab-button-D {
+  background-color: var(--p2-mat-color);
+}
