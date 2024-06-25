@@ -49,20 +49,23 @@ export default function Navbar({translator}: ComponentProps) {
 
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav ml-auto">
-                    <li className="nav-item active">                        
+                    <li className="nav-item active">
                         <button onClick={() => handleNavbarButtonClick("section-home")}>{translator.translate("home")}</button>
                     </li>
-                    <li className="nav-item">                        
+                    <li className="nav-item">
                         <button onClick={() => handleNavbarButtonClick("section-about")}>{translator.translate("aboutMe")}</button>
                     </li>
-                    <li className="nav-item">                        
+                    <li className="nav-item">
                         <button onClick={() => handleNavbarButtonClick("section-portfolio")}>{translator.translate("projects")}</button>
-                    </li>
-                    <li>
+                    </li>                    
+                    <li className="nav-item">
                         <button onClick={() => handleLangChange(translator.i18n.language, "1st")}>{translator.translate("firstLang")}</button>
                     </li>
-                    <li>
+                    <li className="nav-item">
                         <button onClick={() => handleLangChange(translator.i18n.language, "2nd")}>{translator.translate("secondLang")}</button>
+                    </li>
+                    <li className="nav-item">
+                        <a href="mailto:tl.frank.wong@gmail.com" target="_blank"><button><i className="fa fa-envelope"></i></button></a>
                     </li>
                 </ul>
             </div>

@@ -78,8 +78,10 @@ export default function Home({translator}:ComponentProps) {
 
     return (
         <section id="section-home">
-            <div className="container mx-auto px-0">
-                <canvas className="w-75 surrounded" id="bg"></canvas>
+            <div className="container mt-3 p-0">
+                <div className="d-flex justify-content-center">
+                    <canvas className="w-75 surrounded" id="bg"></canvas>
+                </div>
             </div>
         </section>
     );
