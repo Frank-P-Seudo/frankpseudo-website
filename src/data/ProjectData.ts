@@ -5,19 +5,19 @@ const dotnetProjects: Project[] = [
         image: "./project_pic_socialmediamarketer.png",
         title: "project_title_socialmediamarketer",
         description: ["project_desc_socialmediamarketer_1", "project_desc_socialmediamarketer_2", "project_desc_socialmediamarketer_3"],
-        tech: ["C#", ".NET", "TypeScript", "jQuery", "MySQL"],
+        tech: ["C#", ".NET", "TypeScript", "jQuery", "MSSQL"],
         siteUrl: {icon:"fa-solid fa-door-open", displayText: "project_site_displayText_corprio", url: "https://shopify.corprio.com/"}
     }, {
         image: "./project_pic_salesassistant.png",
         title: "project_title_salesassistant",
         description: ["project_desc_salesassistant_1", "project_desc_salesassistant_2", "project_desc_salesassistant_3"],
-        tech: ["C#", ".NET", "TypeScript", "jQuery", "MySQL"],
+        tech: ["C#", ".NET", "TypeScript", "jQuery", "MSSQL"],
         siteUrl: {icon:"fa-solid fa-door-open", displayText: "project_site_displayText_corprio", url: "https://salesassistant.corprio.com/"}
     }, {
         image: "./project_pic_shopify.png",
         title: "project_title_shopify",
         description: ["project_desc_shopify_1", "project_desc_shopify_2", "project_desc_shopify_3"],
-        tech: ["C#", ".NET", "TypeScript", "jQuery", "MySQL", "GraphQL"],
+        tech: ["C#", ".NET", "TypeScript", "jQuery", "MSSQL", "GraphQL"],
         siteUrl: {icon:"fa-solid fa-door-open", displayText: "project_site_displayText_corprio", url: "https://socialmediamarketer.corprio.com/"}
     }
 ];

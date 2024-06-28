@@ -55,8 +55,8 @@ export const SkillData: Skill[] = [
         isFontWhite: true,
         backgroundColor: "#E10098"
     }, {
-        image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg", 
-        name: "MySQL", 
+        image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original-wordmark.svg", 
+        name: "MSSQL", 
         isFontWhite: true,
         backgroundColor: "#00688F"
     }, {
