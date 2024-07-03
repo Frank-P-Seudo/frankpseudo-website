@@ -5,20 +5,20 @@ const dotnetProjects: Project[] = [
         image: "./project_pic_socialmediamarketer.png",
         title: "project_title_socialmediamarketer",
         description: ["project_desc_socialmediamarketer_1", "project_desc_socialmediamarketer_2", "project_desc_socialmediamarketer_3"],
-        tech: ["C#", ".NET", "TypeScript", "jQuery", "MSSQL"],
-        siteUrl: {icon:"fa-solid fa-door-open", displayText: "project_site_displayText_corprio", url: "https://shopify.corprio.com/"}
+        tech: ["C#", ".NET", "TypeScript", "jQuery", "CSS", "HTML", "Bootstrap", "MSSQL"],
+        siteUrl: {icon:"fa-solid fa-door-open", displayText: "project_site_displayText_corprio", url: "https://socialmediamarketer.corprio.com/"}
     }, {
         image: "./project_pic_salesassistant.png",
         title: "project_title_salesassistant",
         description: ["project_desc_salesassistant_1", "project_desc_salesassistant_2", "project_desc_salesassistant_3"],
-        tech: ["C#", ".NET", "TypeScript", "jQuery", "MSSQL"],
+        tech: ["C#", ".NET", "TypeScript", "jQuery", "CSS", "HTML", "Bootstrap", "MSSQL"],
         siteUrl: {icon:"fa-solid fa-door-open", displayText: "project_site_displayText_corprio", url: "https://salesassistant.corprio.com/"}
     }, {
         image: "./project_pic_shopify.png",
         title: "project_title_shopify",
         description: ["project_desc_shopify_1", "project_desc_shopify_2", "project_desc_shopify_3"],
-        tech: ["C#", ".NET", "TypeScript", "jQuery", "MSSQL", "GraphQL"],
-        siteUrl: {icon:"fa-solid fa-door-open", displayText: "project_site_displayText_corprio", url: "https://socialmediamarketer.corprio.com/"}
+        tech: ["C#", ".NET", "TypeScript", "jQuery","CSS", "HTML", "Bootstrap", "MSSQL", "GraphQL"],
+        siteUrl: {icon:"fa-solid fa-door-open", displayText: "project_site_displayText_corprio", url: "https://shopify.corprio.com/"}
     }
 ];
 
@@ -39,27 +39,27 @@ const schoolProjects: Project[] = [
         image: "./project_pic_mangafreaker.png",
         title: "project_title_mangafreaker",
         description: ["project_desc_mangafreaker1", "project_desc_mangafreaker2"],
-        tech: ["Node.js", "Express.js", "MongoDB"],
+        tech: ["Node.js", "Express.js", "JavaScript", "CSS", "HTML", "Bootstrap", "MongoDB"],
         demoUrl: {icon:"fa-solid fa-video", displayText: "project_demo_displayText", url: "https://youtu.be/k9oUnUK6DyQ"},
     }, {
         image: "./project_pic_cs50_commerce.png",
         title: "project_title_cs50_commerce",
         description: ["project_desc_cs50_commerce"],
-        tech: ["Python", "Django", "JavaScript", "SQLite"],
+        tech: ["Python", "Django", "JavaScript","CSS", "HTML", "Bootstrap", "SQLite"],
         repoUrl: {icon:"fa-brands fa-github", displayText: "project_repo_displayText", url: "https://github.com/Frank-P-Seudo/portfolio/tree/master/commerce"},
         demoUrl: {icon:"fa-solid fa-video", displayText: "project_demo_displayText", url: "https://www.youtube.com/watch?v=-JkP87fPwO4"},
     }, {
         image: "./project_pic_cs50_rainmaker.png",
         title: "project_title_cs50_rainmaker",
         description: ["project_desc_cs50_rainmaker"],
-        tech: ["Python", "Django", "JavaScript", "SQLite"],
+        tech: ["Python", "Django", "JavaScript", "CSS", "HTML", "Bootstrap", "SQLite"],
         repoUrl: {icon:"fa-brands fa-github", displayText: "project_repo_displayText", url: "https://github.com/Frank-P-Seudo/portfolio/tree/master/rainmaker"},
         demoUrl: {icon:"fa-solid fa-video", displayText: "project_demo_displayText", url: "https://www.youtube.com/watch?v=pyTOten6tMI"},
     }, {
         image: "./project_pic_cs50_network.png",
         title: "project_title_cs50_network",
         description: ["project_desc_cs50_network"],
-        tech: ["Python", "Django", "JavaScript", "SQLite"],
+        tech: ["Python", "Django", "JavaScript", "CSS", "HTML", "Bootstrap", "SQLite"],
         repoUrl: {icon:"fa-brands fa-github", displayText: "project_repo_displayText", url: "https://github.com/Frank-P-Seudo/portfolio/tree/master/network"},
         demoUrl: {icon:"fa-solid fa-video", displayText: "project_demo_displayText", url: "https://www.youtube.com/watch?v=W4Xka7liMcg"},
     }, 
