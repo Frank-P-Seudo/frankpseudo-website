@@ -6,7 +6,8 @@ const dotnetProjects: Project[] = [
         title: "project_title_socialmediamarketer",
         description: ["project_desc_socialmediamarketer_1", "project_desc_socialmediamarketer_2", "project_desc_socialmediamarketer_3"],
         tech: ["C#", ".NET", "TypeScript", "jQuery", "CSS", "HTML", "Bootstrap", "MSSQL"],
-        siteUrl: {icon:"fa-solid fa-door-open", displayText: "project_site_displayText_corprio", url: "https://socialmediamarketer.corprio.com/"}
+        siteUrl: {icon:"fa-solid fa-door-open", displayText: "project_site_displayText_corprio", url: "https://socialmediamarketer.corprio.com/"},
+        repoUrl: {icon:"fa-brands fa-github", displayText: "project_repo_displayText", url: "https://github.com/Corprio/Corprio.SocialWorker"},
     }, {
         image: "./project_pic_salesassistant.png",
         title: "project_title_salesassistant",
