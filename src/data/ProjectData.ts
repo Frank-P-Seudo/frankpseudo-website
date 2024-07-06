@@ -30,7 +30,7 @@ const gameProjects: Project[] = [
         description: ["project_desc_moz_1", "project_desc_moz_2", "project_desc_moz_3"],
         tech: ["HTML", "CSS", "JavaScript"],
         demoUrl: {icon:"fa-solid fa-video", displayText: "project_demo_displayText", url: "https://youtu.be/Qy22gjbEqic"},
-        repoUrl: {icon:"fa-brands fa-github", displayText: "project_repo_displayText", url: "https://github.com/Frank-P-Seudo/frankpseudo-website/tree/main/MOZ"},
+        repoUrl: {icon:"fa-brands fa-github", displayText: "project_repo_displayText", url: "https://github.com/Frank-P-Seudo/frankpseudo-website/tree/main/public/MOZ"},
         siteUrl: {icon:"fa-solid fa-door-open", displayText: "project_site_displayText_moz", url: "./MOZ/Deckbuilder.html"}
     }
 ];
