@@ -6,20 +6,20 @@ const dotnetProjects: Project[] = [
         title: "project_title_socialmediamarketer",
         description: ["project_desc_socialmediamarketer_1", "project_desc_socialmediamarketer_2", "project_desc_socialmediamarketer_3"],
         tech: ["C#", ".NET", "TypeScript", "jQuery", "CSS", "HTML", "Bootstrap", "MSSQL"],
-        siteUrl: {icon:"fa-solid fa-door-open", displayText: "project_site_displayText_corprio", url: "https://socialmediamarketer.corprio.com/"},
+        siteUrl: {icon:"fa-solid fa-door-open", displayText: "project_site_displayText_visit", url: "https://socialmediamarketer.corprio.com/"},
         repoUrl: {icon:"fa-brands fa-github", displayText: "project_repo_displayText", url: "https://github.com/Corprio/Corprio.SocialWorker"},
     }, {
         image: "./project_pic_salesassistant.png",
         title: "project_title_salesassistant",
         description: ["project_desc_salesassistant_1", "project_desc_salesassistant_2", "project_desc_salesassistant_3"],
         tech: ["C#", ".NET", "TypeScript", "jQuery", "CSS", "HTML", "Bootstrap", "MSSQL"],
-        siteUrl: {icon:"fa-solid fa-door-open", displayText: "project_site_displayText_corprio", url: "https://salesassistant.corprio.com/"}
+        siteUrl: {icon:"fa-solid fa-door-open", displayText: "project_site_displayText_visit", url: "https://salesassistant.corprio.com/"}
     }, {
         image: "./project_pic_shopify.png",
         title: "project_title_shopify",
         description: ["project_desc_shopify_1", "project_desc_shopify_2", "project_desc_shopify_3"],
         tech: ["C#", ".NET", "TypeScript", "jQuery","CSS", "HTML", "Bootstrap", "MSSQL", "GraphQL"],
-        siteUrl: {icon:"fa-solid fa-door-open", displayText: "project_site_displayText_corprio", url: "https://shopify.corprio.com/"}
+        siteUrl: {icon:"fa-solid fa-door-open", displayText: "project_site_displayText_visit", url: "https://shopify.corprio.com/"}
     }
 ];
 
@@ -32,6 +32,16 @@ const gameProjects: Project[] = [
         demoUrl: {icon:"fa-solid fa-video", displayText: "project_demo_displayText", url: "https://youtu.be/Qy22gjbEqic"},
         repoUrl: {icon:"fa-brands fa-github", displayText: "project_repo_displayText", url: "https://github.com/Frank-P-Seudo/frankpseudo-website/tree/main/public/MOZ"},
         siteUrl: {icon:"fa-solid fa-door-open", displayText: "project_site_displayText_moz", url: "./MOZ/Deckbuilder.html"}
+    }
+];
+
+const petProjects: Project[] = [
+    {
+        image: "./project_pic_mynews.png",
+        title: "project_title_mynews",
+        description: ["project_desc_mynews_1"],
+        tech: ["JavaScript", "jQuery", "CSS", "HTML", "Bootstrap", ],
+        siteUrl: {icon:"fa-solid fa-door-open", displayText: "project_site_displayText_visit", url: "./News/index.html"}
     }
 ];
 
@@ -77,6 +87,11 @@ export const ProjectData: ProjectColumn[] = [
         icon: "fa-solid fa-gamepad",
         description: ["tab_desc_game"],
         projects: gameProjects,
+    }, {
+        title: "tab_title_pet",
+        icon: "far fa-object-group",
+        description: ["tab_desc_pet"],
+        projects: petProjects,
     }, {
         title: "tab_title_school",
         icon: "fa-solid fa-school",
