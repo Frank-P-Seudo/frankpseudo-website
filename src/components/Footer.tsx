@@ -1,10 +1,23 @@
-import { ComponentProps } from "../common/interfaces"
+import { ComponentProps } from "../common/interfaces";
+import Attribution from "./Attribution";
 
-export default function Footer({translator}: ComponentProps) {
-    return (<div className="fix-bottom pb-3 d-flex justify-content-end align-items-center">        
-        <div className="text-tea">{translator.translate("footerText")}&nbsp;&nbsp;</div>
-        <div style={{maxWidth: 30}}>
-            <img className="w-100" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"/>
-        </div>        
-    </div>);
+export default function Footer({ translator }: ComponentProps) {
+  return (
+    <div className="fix-bottom pb-3 d-flex justify-content-around align-items-center">
+      <Attribution
+        translator={translator}
+        text={"footerText_favicon"}
+        link={"https://www.textstudio.com/"}
+        image={"https://cdn.textstudio.com/asset/favicon.svg"}
+      />
+      <Attribution
+        translator={translator}
+        text={"footerText_react"}
+        link={"https://react.dev/"}
+        image={
+          "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+        }
+      />
+    </div>
+  );
 }

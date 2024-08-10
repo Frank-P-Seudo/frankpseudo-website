@@ -50,3 +50,9 @@ export interface ExternalLink {
 export interface ProjectButtonProps extends ComponentProps {
     link: ExternalLink,
 }
+
+export interface AttributionProps extends ComponentProps {
+    text: string,
+    link?: string,
+    image: string
+}
